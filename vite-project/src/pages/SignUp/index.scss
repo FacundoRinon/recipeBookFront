@@ -1,0 +1,48 @@
+@import "../../theme/variables.scss";
+
+.signUp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+}
+
+.signUp__message {
+  color: white;
+}
+
+.signUp__space {
+  width: 90%;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.signUp__form {
+  width: 50%;
+}
+
+#form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.form__input {
+  width: 80%;
+  padding: 0.5rem;
+  margin: 5px;
+  border: 1px solid $color-primary;
+  border-radius: 5px;
+}
+
+.signUp__carousell {
+  width: 50%;
+  background-color: $color-primary;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
