@@ -10,7 +10,9 @@
 }
 
 .login__message {
-  color: white;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 .login__space {
@@ -22,6 +24,7 @@
 }
 
 .login__form {
+  color: $color-primary;
   width: 50%;
   display: flex;
   flex-wrap: wrap;
@@ -51,9 +54,10 @@
 }
 
 .login__button {
-  background-color: $color-primary;
-  border: 1px solid black;
+  color: $color-primary;
+  background-color: white;
+  border: 2px solid $color-primary;
   border-radius: 5px;
-  margin-top: 1rem;
+  margin: 1rem;
   padding: 0.5rem;
 }

@@ -6,8 +6,10 @@ const Feed = () => {
   return (
     <>
       <div className="feed">
+        <div className="feed__header">
+          <h1>New recipies</h1>
+        </div>
         <div className="feed__content">
-          <h1>feed</h1>
           <RecipeCard />
           <RecipeCard />
           <RecipeCard />

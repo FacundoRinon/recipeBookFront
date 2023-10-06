@@ -10,10 +10,11 @@
 }
 
 .signUp__message {
-  color: white;
+  font-size: 1.5rem;
 }
 
 .signUp__space {
+  color: $color-primary;
   width: 90%;
   background-color: white;
   border-radius: 10px;
@@ -48,4 +49,13 @@
   background-color: $color-primary;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+.signUp__button {
+  color: $color-primary;
+  background-color: white;
+  border: 2px solid $color-primary;
+  border-radius: 5px;
+  margin: 1rem;
+  padding: 0.5rem;
 }

@@ -41,11 +41,11 @@ function SignUp() {
   return (
     <>
       <div className="signUp">
-        <p className="signUp__message">
-          Register and start sharing your recipes
-        </p>
         <div className="signUp__space">
           <div className="signUp__form">
+            <p className="signUp__message">
+              Register and start sharing your recipes
+            </p>
             <form id="form" method="post" action="/" onSubmit={handleSubmit}>
               <input
                 id="firstname"
@@ -69,7 +69,7 @@ function SignUp() {
                 id="e-mail"
                 type="text"
                 className="form__input"
-                placeholder="e-mail"
+                placeholder="Email"
                 name="e-mail"
                 value={emailValue}
                 onChange={(event) => setEmailValue(event.target.value)}
@@ -87,7 +87,7 @@ function SignUp() {
                 id="password"
                 type="password"
                 className="form__input"
-                placeholder="password"
+                placeholder="Password"
                 name="password"
                 value={passwordValue}
                 onChange={(event) => setPasswordValue(event.target.value)}
@@ -96,12 +96,14 @@ function SignUp() {
                 id="password2"
                 type="password"
                 className="form__input"
-                placeholder="password2"
+                placeholder="Confirm password"
                 name="password2"
                 value={password2Value}
                 onChange={(event) => setPassword2Value(event.target.value)}
               />
-              <button type="submit">Sign Up</button>
+              <button type="submit" className="signUp__button">
+                Sign Up
+              </button>
             </form>
             <p>
               Already have an account? <Link to={"/login"}>Log in</Link>

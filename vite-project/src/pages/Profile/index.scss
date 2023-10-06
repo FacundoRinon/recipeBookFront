@@ -1,0 +1,86 @@
+@import "../../theme/variables.scss";
+
+.profile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.profile__userRow {
+  display: flex;
+  width: 100%;
+  background-color: black;
+  color: $color-primary;
+  border-bottom: 5px solid $color-primary;
+}
+
+.profile__userAvatar {
+  margin: 1rem;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 3px solid $color-primary;
+}
+
+.profile__data {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile__userInfo {
+  width: 100%;
+}
+
+.profile__createRecipe {
+  width: 50%;
+  display: flex;
+  align-items: center;
+
+  & .profile__createRecipeButton {
+    border: 2px solid $color-primary;
+    border-radius: 5px;
+    padding: 0.25rem;
+  }
+}
+
+.profile__follows {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 50%;
+
+  & p {
+    margin: 0.5rem;
+  }
+}
+
+.profile__userRecipes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.profile__header {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  background-color: white;
+  border-bottom: 3px solid $color-primary;
+}
+
+.profile__headerButton {
+  color: $color-primary;
+  border: 2px solid $color-primary;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.profile__recipies {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}

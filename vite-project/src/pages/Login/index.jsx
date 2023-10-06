@@ -31,9 +31,9 @@ const Login = () => {
   return (
     <>
       <div className="login">
-        <p className="login__message">Welcome !!</p>
         <div className="login__space">
           <div className="login__form">
+            <p className="login__message">Welcome !!</p>
             <form id="form" method="post" action="/" onSubmit={handleSubmit}>
               <input
                 id="username"
@@ -48,7 +48,7 @@ const Login = () => {
                 id="password"
                 type="password"
                 className="form__input"
-                placeholder="password"
+                placeholder="Password"
                 name="password"
                 value={passwordValue}
                 onChange={(event) => setPasswordValue(event.target.value)}

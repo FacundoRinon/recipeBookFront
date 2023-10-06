@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.scss";
-import Navbar from "../../components/Navbar/Index";
+import Navbar from "../../components/Navbar";
 import Feed from "../../components/Feed";
 
 function Home() {
