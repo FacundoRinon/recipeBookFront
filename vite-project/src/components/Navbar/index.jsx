@@ -30,9 +30,9 @@ const Navbar = () => {
               {user.firstname} {user.lastname}
             </p>
           </Link>
-          <p className="navBar__button" onClick={handleLogout}>
-            Buscar
-          </p>
+          <Link to="/search">
+            <p className="navBar__button">Buscar</p>
+          </Link>
           <p className="navBar__button" onClick={handleLogout}>
             Cerrar Sesion
           </p>

@@ -1,0 +1,73 @@
+@import "../../theme/variables.scss";
+
+.newRecipe {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.newRecipe__form {
+  width: 45%;
+  border: 3px solid $color-primary;
+  background-color: black;
+  border-radius: 10px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.newRecipe__label {
+  color: $color-primary;
+}
+
+.newRecipe__input {
+  color: $color-primary;
+  background-color: black;
+  border: 3px solid $color-primary;
+  border-radius: 10px;
+  width: 80%;
+  margin: 0.5rem;
+  padding: 0.25rem;
+}
+
+.newRecipe__select {
+  background-color: black;
+  color: $color-primary;
+  border: 3px solid $color-primary;
+  border-radius: 10px;
+  margin: 0.5rem;
+  padding: 0.25rem;
+  width: 80%;
+}
+
+.newRecipe__textarea {
+  background-color: black;
+  border: 3px solid $color-primary;
+  border-radius: 10px;
+  width: 80%;
+  padding: 0.25rem;
+  margin: 0.5rem;
+  color: $color-primary;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.newRecipe__file {
+  border: 3px solid $color-primary;
+  border-radius: 10px;
+  width: 80%;
+  padding: 0.25rem;
+  margin: 0.5rem;
+  color: $color-primary;
+}
+
+.newRecipe__preview {
+  width: 45%;
+  border: 3px solid $color-primary;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}

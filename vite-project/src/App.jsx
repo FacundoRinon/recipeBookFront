@@ -5,6 +5,8 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+import Search from "./pages/Search";
+import NewRecipe from "./pages/NewRecipe";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/newRecipe" element={<NewRecipe />} />
         </Route>
       </Routes>
     </>

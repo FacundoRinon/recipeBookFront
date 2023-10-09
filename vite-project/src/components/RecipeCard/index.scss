@@ -112,3 +112,8 @@
   color: $color-primary;
   background-color: black;
 }
+
+.recipeCard__button:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
