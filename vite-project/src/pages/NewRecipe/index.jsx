@@ -3,20 +3,37 @@ import "./index.scss";
 import Navbar from "../../components/Navbar";
 
 const NewRecipe = () => {
-  const categorys = ["Burguer", "Salad", "Pizza", "Chicken", "Sushi", "Rice"];
+  const categorys = [
+    "None",
+    "Burguer",
+    "Salad",
+    "Pizza",
+    "Chicken",
+    "Sushi",
+    "Rice",
+    "Other",
+  ];
 
   const [nameValue, setNameValue] = useState("");
   const [descriptionValue, setDescriptionValue] = useState("");
   const [categoryValue, setCategoryValue] = useState("none");
+  const [ingredientName, setIngredientName] = useState("");
+  const [ingredientQuantity, setIngredientQuantity] = useState("");
   const [ingredientsValue, setIngredientsValue] = useState([]);
   const [instructionsValue, setInstructionsValue] = useState("");
   const [avatarValue, setAvatarValue] = useState(null);
 
-  console.log(nameValue);
-  console.log(categoryValue);
-  console.log(descriptionValue);
-  console.log(ingredientsValue);
-  console.log(instructionsValue);
+  const handleAddIngredient = () => {
+    if (ingredientName && ingredientQuantity) {
+      const newIngredient = {
+        name: ingredientName,
+        quantity: ingredientQuantity,
+      };
+      setIngredientsValue([...ingredientsValue, newIngredient]);
+      setIngredientName("");
+      setIngredientQuantity("");
+    }
+  };
 
   return (
     <>
@@ -69,12 +86,27 @@ const NewRecipe = () => {
           </label>
           <input
             type="text"
-            className="newRecipe__input"
-            name="ingredients"
-            placeholder="ingredients"
-            value={ingredientsValue}
-            onChange={(event) => setIngredientsValue(event.target.value)}
+            className="newRecipe__ingredient"
+            name="ingredient"
+            placeholder="ingredient"
+            value={ingredientName}
+            onChange={(event) => setIngredientName(event.target.value)}
           />
+          <input
+            type="text"
+            className="newRecipe__ingredient"
+            name="quantity"
+            placeholder="quantity"
+            value={ingredientQuantity}
+            onChange={(event) => setIngredientQuantity(event.target.value)}
+          />
+          <button
+            type="button"
+            className="newRecipe__button"
+            onClick={handleAddIngredient}
+          >
+            Add Ingredient
+          </button>
           <label htmlFor="" className="newRecipe__label">
             Now describe how to prepare
           </label>
@@ -98,7 +130,62 @@ const NewRecipe = () => {
           />
         </div>
         <div className="newRecipe__preview">
-          <p>Aca va a estar el preview</p>
+          {nameValue ? (
+            <h3 className="preview__title">{nameValue}</h3>
+          ) : (
+            <h3 className="preview__title">Recipe name</h3>
+          )}
+          <div className="preview__descriptionRow">
+            <div className="preview__imgSpace">
+              <img
+                src="https://media.licdn.com/dms/image/D4D03AQHRpriPsqXNyw/profile-displayphoto-shrink_800_800/0/1674105280991?e=2147483647&v=beta&t=1HHq56exp6ajnbwS8rIVQBcxz-kie53VfW5WpfZcOW0"
+                alt=""
+                className="preview__pic"
+              />
+            </div>
+            <div className="preview__catDes">
+              <p>Category: {categoryValue}</p>
+              {descriptionValue ? (
+                <small>{descriptionValue}</small>
+              ) : (
+                <small>Compose a brief description of the recipe.</small>
+              )}
+            </div>
+            <div className="preview__ingredients">
+              <h4>Ingredients:</h4>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {ingredientsValue.length > 0 ? (
+                    ingredientsValue.map((ingredient, index) => (
+                      <tr key={index}>
+                        <td>{ingredient.name}</td>
+                        <td>{ingredient.quantity}</td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr key="none">
+                      <td>none</td>
+                      <td>none</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+            <div className="preview__preparation">
+              <h4>Preparation:</h4>
+              {instructionsValue ? (
+                <p>{instructionsValue}</p>
+              ) : (
+                <p>Provide a step-by-step guide for preparing your recipe.</p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </>
