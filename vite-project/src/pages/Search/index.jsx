@@ -36,19 +36,13 @@ const Search = () => {
     getUsers();
   }, [searchValue]);
 
-  console.log(searchedUsers);
-
   return (
     <>
       <Navbar />
       <div className="search">
         <div className="search__searcherRow">
           <h1 className="search__header">Search</h1>
-          <img
-            src="https://media.licdn.com/dms/image/D4D03AQHRpriPsqXNyw/profile-displayphoto-shrink_800_800/0/1674105280991?e=2147483647&v=beta&t=1HHq56exp6ajnbwS8rIVQBcxz-kie53VfW5WpfZcOW0"
-            alt=""
-            className="search__userAvatar"
-          />
+          <img src={user.avatar} alt="" className="search__userAvatar" />
           <input
             type="text"
             className="search__searcher"
@@ -61,7 +55,7 @@ const Search = () => {
         <div className="search__results">
           {searchedUsers ? (
             searchedUsers.map((searchUser) => {
-              return <FollowRow key={searchUser._id} user={searchUser} />;
+              return <FollowRow key={searchUser._id} follow={searchUser} />;
             })
           ) : (
             <p>Comienza a buscar chefs</p>

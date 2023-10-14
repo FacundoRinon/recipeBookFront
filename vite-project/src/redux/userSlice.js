@@ -10,9 +10,37 @@ const userSlice = createSlice({
     removeToken(state, action) {
       return null;
     },
+    toggleFollow: (state, action) => {
+      const { follow, user } = action.payload;
+
+      const updatedUser = {
+        ...user,
+        following: user.following.includes(follow._id)
+          ? user.following.filter((id) => id !== follow._id)
+          : [...user.following, follow._id],
+      };
+
+      return updatedUser;
+    },
+    toggleRecipeBook: (state, action) => {
+      const { user, recipe } = action.payload;
+
+      const recipeExistsInCookingBook = user.cookingBook.some(
+        (bookRecipe) => bookRecipe.id === recipe.id
+      );
+
+      const updatedUser = {
+        ...user,
+        cookingBook: recipeExistsInCookingBook
+          ? user.cookingBook.filter((bookRecipe) => bookRecipe.id !== recipe.id)
+          : [...user.cookingBook, recipe],
+      };
+      return updatedUser;
+    },
   },
 });
 
 const { actions, reducer } = userSlice;
-export const { setToken, removeToken } = actions;
+export const { setToken, removeToken, toggleFollow, toggleRecipeBook } =
+  actions;
 export default reducer;

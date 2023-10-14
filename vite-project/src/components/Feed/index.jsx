@@ -1,8 +1,10 @@
 import React from "react";
 import "./index.scss";
 import RecipeCard from "../RecipeCard";
+import { useSelector } from "react-redux";
 
 const Feed = () => {
+  const recipes = useSelector((state) => state.recipes);
   return (
     <>
       <div className="feed">
@@ -10,12 +12,13 @@ const Feed = () => {
           <h1>New recipies</h1>
         </div>
         <div className="feed__content">
-          <RecipeCard />
-          <RecipeCard />
-          <RecipeCard />
-          <RecipeCard />
-          <RecipeCard />
-          <RecipeCard />
+          {recipes ? (
+            recipes.map((recipe) => {
+              return <RecipeCard key={recipe.id} recipe={recipe} />;
+            })
+          ) : (
+            <p>Start following chefs to discover new recipes</p>
+          )}
         </div>
       </div>
     </>

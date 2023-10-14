@@ -15,13 +15,11 @@ const Login = () => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    console.log("entro");
     const response = await axios({
       method: "POST",
       url: `${import.meta.env.VITE_API_URL}/user/login`,
       data: { username: usernameValue, password: passwordValue },
     });
-    console.log(response.data);
     if (response.data.token) {
       dispatch(setToken(response.data));
       navigate("/");

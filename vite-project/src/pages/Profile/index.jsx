@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.scss";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import RecipeCard from "../../components/RecipeCard";
 import { useSelector } from "react-redux";
+import { render } from "react-dom";
 
 const Profile = () => {
   const user = useSelector((state) => state.user);
+
+  const [renderRecipes, setRenderRecipes] = useState(user.recipes);
 
   return (
     <>
@@ -14,11 +17,7 @@ const Profile = () => {
         <Navbar />
         <div className="profile__userRow">
           <div className="profile__avatar">
-            <img
-              src="https://media.licdn.com/dms/image/D4D03AQHRpriPsqXNyw/profile-displayphoto-shrink_800_800/0/1674105280991?e=2147483647&v=beta&t=1HHq56exp6ajnbwS8rIVQBcxz-kie53VfW5WpfZcOW0"
-              alt=""
-              className="profile__userAvatar"
-            />
+            <img src={user.avatar} alt="" className="profile__userAvatar" />
           </div>
 
           <div className="profile__data">
@@ -43,18 +42,27 @@ const Profile = () => {
         </div>
         <div className="profile__userRecipes">
           <div className="profile__header">
-            <h3 className="profile__headerButton">Your recipies</h3>
-            <h3 className="profile__headerButton">Cooking book</h3>
+            <h3
+              className="profile__headerButton"
+              onClick={() => setRenderRecipes(user.recipes)}
+            >
+              Your recipies
+            </h3>
+            <h3
+              className="profile__headerButton"
+              onClick={() => setRenderRecipes(user.cookingBook)}
+            >
+              Cooking book
+            </h3>
           </div>
           <div className="profile__recipies">
-            <RecipeCard />
-            <RecipeCard />
-            <RecipeCard />
-            <RecipeCard />
-            <RecipeCard />
-            <RecipeCard />
-            <RecipeCard />
-            <RecipeCard />
+            {renderRecipes ? (
+              renderRecipes.map((recipe) => {
+                return <RecipeCard key={recipe.id} recipe={recipe} />;
+              })
+            ) : (
+              <p>There is no recipes</p>
+            )}
           </div>
         </div>
       </div>

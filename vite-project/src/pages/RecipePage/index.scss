@@ -1,0 +1,64 @@
+@import "../../theme/variables.scss";
+
+.recipePage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.recipePage__container {
+  width: 90%;
+  background-color: white;
+  border: 3px solid $color-primary;
+  border-radius: 10px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.recipePage__header {
+  padding: 1rem;
+}
+
+.recipePage__PicAndDesc {
+  padding: 1rem;
+  display: flex;
+}
+
+.recipePage__Pic {
+  width: 50%;
+  border-radius: 10px;
+}
+
+.recipe__catAndDesc {
+  padding-left: 1rem;
+}
+
+.recipePage__ingredientsRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  & p {
+    width: 100%;
+    padding-left: 1rem;
+  }
+}
+
+.recipePage__table {
+  width: 60%;
+  border-collapse: collapse;
+}
+
+.recipePage__tableHeader {
+  border: 3px solid $color-primary;
+  text-align: center;
+}
+
+.recipePage__tableData {
+  border: 3px solid $color-primary;
+  text-align: center;
+}
+
+.recipePage__instructionsRow {
+  padding: 1rem;
+}

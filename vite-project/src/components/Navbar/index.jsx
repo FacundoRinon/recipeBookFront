@@ -4,6 +4,7 @@ import "./index.scss";
 import { useNavigate, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { removeToken } from "../../redux/userSlice";
+import { removeRecipes } from "../../redux/recipesSlice";
 
 const Navbar = () => {
   const user = useSelector((state) => state.user);
@@ -13,6 +14,7 @@ const Navbar = () => {
 
   async function handleLogout() {
     dispatch(removeToken());
+    dispatch(removeRecipes());
     navigate("/login");
   }
 

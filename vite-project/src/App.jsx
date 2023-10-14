@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Search from "./pages/Search";
 import NewRecipe from "./pages/NewRecipe";
+import RecipePage from "./pages/RecipePage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/search" element={<Search />} />
           <Route path="/newRecipe" element={<NewRecipe />} />
+          <Route path="/recipe/:id" element={<RecipePage />} />
         </Route>
       </Routes>
     </>
