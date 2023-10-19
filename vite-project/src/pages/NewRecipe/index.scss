@@ -84,6 +84,17 @@
   color: $color-primary;
 }
 
+.newRecipe__submitButton {
+  width: 25%;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border: 3px solid $color-primary;
+  border-radius: 10px;
+  background-color: white;
+  color: $color-primary;
+}
+
 .newRecipe__preview {
   width: 45%;
   border: 3px solid $color-primary;

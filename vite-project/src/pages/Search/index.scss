@@ -23,7 +23,8 @@
 
 @media (max-width: 576px) {
   .search__userAvatar {
-    width: 30%;
+    width: 10rem;
+    height: 10rem;
     border-radius: 50%;
     margin: 1rem;
     border: 3px solid $color-primary;
@@ -32,7 +33,8 @@
 
 @media (min-width: 577px) {
   .search__userAvatar {
-    width: 10%;
+    width: 10rem;
+    height: 10rem;
     border-radius: 50%;
     margin: 1rem;
     border: 3px solid $color-primary;

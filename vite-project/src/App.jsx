@@ -8,6 +8,8 @@ import Profile from "./pages/Profile";
 import Search from "./pages/Search";
 import NewRecipe from "./pages/NewRecipe";
 import RecipePage from "./pages/RecipePage";
+import OtherProfile from "./pages/OtherProfile";
+import EditProfile from "./pages/EditProfile";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/newRecipe" element={<NewRecipe />} />
           <Route path="/recipe/:id" element={<RecipePage />} />
+          <Route path="/profile/:id" element={<OtherProfile />} />
+          <Route path="/editProfile" element={<EditProfile />} />
         </Route>
       </Routes>
     </>

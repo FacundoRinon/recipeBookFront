@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleRecipeBook } from "../../redux/userSlice";
 
 const RecipeCard = ({ recipe }) => {
-  // console.log(recipe);
   const user = useSelector((state) => state.user);
   const url = recipe.id; //esta bien, ya lo confirmo un console.log = Este es el id de la receta
   const dispatch = useDispatch();
@@ -36,7 +35,7 @@ const RecipeCard = ({ recipe }) => {
         <div className="recipeCard__userRow">
           <div className="recipeCard__picSpace">
             <img
-              src={recipe.author.avatar}
+              src={`${import.meta.env.VITE_IMG_URL}/${recipe.author.avatar}`}
               alt=""
               className="recipeCard__userImg"
             />

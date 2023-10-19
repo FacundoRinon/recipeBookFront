@@ -60,18 +60,22 @@
   }
 
   .followRow__avatarRow {
-    width: 10%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .followRow__avatar {
-    width: 100%;
+    width: 6rem;
+    height: 6rem;
     border-radius: 50%;
     border: 3px solid $color-primary;
   }
 
   .followRow__user {
     //   display: flex;
-    width: 75%;
+    width: 65%;
   }
 
   .followRow__button {

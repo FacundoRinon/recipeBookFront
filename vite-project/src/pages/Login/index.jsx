@@ -61,7 +61,7 @@ const Login = () => {
             </p>
           </div>
           <div className="login__carousell">
-            <p>Hello madafakeeeeeers</p>
+            <p>Aca va el carousell</p>
           </div>
         </div>
       </div>

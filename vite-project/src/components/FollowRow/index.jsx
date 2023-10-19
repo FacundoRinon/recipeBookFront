@@ -35,7 +35,15 @@ const FollowRow = ({ follow }) => {
     <>
       <div className="followRow">
         <div className="followRow__avatarRow">
-          <img src={follow.avatar} alt="" className="followRow__avatar" />
+          {follow.avatar.includes("http") ? (
+            <img src={follow.avatar} alt="" className="followRow__avatar" />
+          ) : (
+            <img
+              src={`${import.meta.env.VITE_IMG_URL}/${follow.avatar}`}
+              alt=""
+              className="followRow__avatar"
+            />
+          )}
         </div>
         <div className="followRow__user">
           <div className="followRow__usernames">

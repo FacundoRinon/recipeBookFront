@@ -17,7 +17,11 @@ const Profile = () => {
         <Navbar />
         <div className="profile__userRow">
           <div className="profile__avatar">
-            <img src={user.avatar} alt="" className="profile__userAvatar" />
+            <img
+              src={`${import.meta.env.VITE_IMG_URL}/${user.avatar}`}
+              alt=""
+              className="profile__userAvatar"
+            />
           </div>
 
           <div className="profile__data">
@@ -31,6 +35,9 @@ const Profile = () => {
               <div className="profile__createRecipe">
                 <Link to="/newRecipe" className="link">
                   <p className="profile__createRecipeButton">Add new recipe</p>
+                </Link>
+                <Link to="/editProfile" className="link">
+                  <p className="profile__editProfileButton">Edit profile</p>
                 </Link>
               </div>
               <div className="profile__follows">

@@ -42,7 +42,11 @@ const Search = () => {
       <div className="search">
         <div className="search__searcherRow">
           <h1 className="search__header">Search</h1>
-          <img src={user.avatar} alt="" className="search__userAvatar" />
+          <img
+            src={`${import.meta.env.VITE_IMG_URL}/${user.avatar}`}
+            alt=""
+            className="search__userAvatar"
+          />
           <input
             type="text"
             className="search__searcher"
