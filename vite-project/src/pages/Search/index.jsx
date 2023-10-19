@@ -1,9 +1,11 @@
-import "./index.scss";
 import React, { useEffect, useState } from "react";
-import Navbar from "../../components/Navbar";
-import FollowRow from "../../components/FollowRow";
-import axios from "axios";
 import { useSelector } from "react-redux";
+import axios from "axios";
+
+import FollowRow from "../../components/FollowRow";
+import Navbar from "../../components/Navbar";
+
+import "./index.scss";
 
 const Search = () => {
   const user = useSelector((state) => state.user);

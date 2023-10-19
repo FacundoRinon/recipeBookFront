@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { setToken } from "../../redux/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setToken } from "../../redux/userSlice";
 import { Link } from "react-router-dom";
 import axios from "axios";
+
 import "./index.scss";
 
 function SignUp() {

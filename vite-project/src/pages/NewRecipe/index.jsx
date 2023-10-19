@@ -5,9 +5,9 @@ import axios from "axios";
 
 import Navbar from "../../components/Navbar";
 import { addRecipe } from "../../redux/recipesSlice";
+import { setToken } from "../../redux/userSlice";
 
 import "./index.scss";
-import { setToken } from "../../redux/userSlice";
 
 const NewRecipe = () => {
   const user = useSelector((state) => state.user);

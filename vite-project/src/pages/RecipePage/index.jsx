@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./index.scss";
-import Navbar from "../../components/Navbar";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
+
+import Navbar from "../../components/Navbar";
+
+import "./index.scss";
 
 const RecipePage = () => {
   const user = useSelector((state) => state.user);
@@ -51,6 +53,7 @@ const RecipePage = () => {
               <div className="recipe__catAndDesc">
                 <p>Category: {recipe.category}</p>
                 <p>Description:</p>
+
                 <small>{recipe.description}</small>
               </div>
             </div>

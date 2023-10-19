@@ -46,7 +46,8 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 100%;
+  text-align: center;
 
   & .editProfile__userProp {
     width: 100%;
@@ -78,10 +79,18 @@
   margin: 0.5rem;
 }
 
+.editProfile__formButtonRow {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .editProfile__formButton {
   background-color: white;
   border: 3px solid $color-primary;
   border-radius: 5px;
+  margin-top: 1rem;
   padding: 0.5rem;
   color: $color-primary;
+  width: 25%;
 }

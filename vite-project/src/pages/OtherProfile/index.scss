@@ -1,0 +1,155 @@
+@import "../../theme/variables.scss";
+
+.otherProfile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.otherProfile__userRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  background-color: black;
+  color: $color-primary;
+  border-bottom: 5px solid $color-primary;
+}
+
+@media (min-width: 577px) {
+  .otherProfile__avatar {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .otherProfile__userAvatar {
+    object-fit: cover;
+    margin: 1rem;
+    width: 7rem;
+    height: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 3px solid $color-primary;
+  }
+
+  .otherProfile__headerButton {
+    color: $color-primary;
+    border: 2px solid $color-primary;
+    border-radius: 5px;
+    padding: 0.25rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .otherProfile__userAvatar {
+    object-fit: cover;
+    margin: 1rem;
+    width: 10rem;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 3px solid $color-primary;
+  }
+}
+
+@media (max-width: 576px) {
+  .otherProfile__avatar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .otherProfile__userAvatar {
+    margin: 1rem;
+    width: 7rem;
+    height: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 3px solid $color-primary;
+  }
+
+  .otherProfile__headerButton {
+    color: $color-primary;
+    border: 2px solid $color-primary;
+    border-radius: 5px;
+    padding: 0.25rem;
+    font-size: 0.75rem;
+  }
+}
+
+.otherProfile__data {
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2%;
+}
+
+.otherProfile__userInfo {
+  width: 100%;
+}
+
+.otherProfile__bottomRow {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
+}
+
+.otherProfile__createRecipe {
+  display: flex;
+  align-items: center;
+
+  & .otherProfile__createRecipeButton,
+  .otherProfile__editProfileButton {
+    border: 2px solid $color-primary;
+    border-radius: 5px;
+    padding: 0.25rem;
+    margin: 0.25rem;
+  }
+}
+
+.otherProfile__follows {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+  & p {
+    margin: 0.5rem;
+  }
+}
+
+.otherProfile__userRecipes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.otherProfile__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+  background-color: white;
+  border-bottom: 3px solid $color-primary;
+}
+
+.otherProfile__recipies {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.link {
+  text-decoration: none;
+  color: $color-primary;
+}

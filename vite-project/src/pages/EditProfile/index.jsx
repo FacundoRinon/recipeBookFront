@@ -90,12 +90,21 @@ const EditProfile = () => {
                 alt=""
               />
             </div>
-            <div className="editProfile__userData">
-              <h2 className="editProfile__userProp">
-                {user.firstname} {user.lastname}
-              </h2>
-              <p className="editProfile__userProp">@{user.username}</p>
-            </div>
+            {user ? (
+              <div className="editProfile__userData">
+                <h2 className="editProfile__userProp">
+                  {firstnameValue} {lastnameValue}
+                </h2>
+                <p className="editProfile__userProp">@{usernameValue}</p>
+              </div>
+            ) : (
+              <div className="editProfile__userData">
+                <h2 className="editProfile__userProp">
+                  {user.firstname} {user.lastname}
+                </h2>
+                <p className="editProfile__userProp">@{user.username}</p>
+              </div>
+            )}
           </div>
           <form className="editProfile__form" onSubmit={handleSubmit} action="">
             <div className="editProfile__formRow">
@@ -142,7 +151,7 @@ const EditProfile = () => {
             </div>
             <div className="editProfile__formRow">
               <label className="editProfile__formLabel" htmlFor="">
-                Avatar
+                Avatar:
               </label>
               <input
                 className="editProfile__formInput"
@@ -151,7 +160,7 @@ const EditProfile = () => {
                 onChange={handleAvatar}
               />
             </div>
-            <div className="editProfile__formRow">
+            <div className="editProfile__formButtonRow">
               <button className="editProfile__formButton">Save</button>
             </div>
           </form>

@@ -23,7 +23,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/newRecipe" element={<NewRecipe />} />
           <Route path="/recipe/:id" element={<RecipePage />} />
-          <Route path="/profile/:id" element={<OtherProfile />} />
+          <Route path="/user/:id" element={<OtherProfile />} />
           <Route path="/editProfile" element={<EditProfile />} />
         </Route>
       </Routes>

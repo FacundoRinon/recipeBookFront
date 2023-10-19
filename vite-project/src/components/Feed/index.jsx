@@ -1,7 +1,9 @@
 import React from "react";
-import "./index.scss";
-import RecipeCard from "../RecipeCard";
 import { useSelector } from "react-redux";
+
+import RecipeCard from "../RecipeCard";
+
+import "./index.scss";
 
 const Feed = () => {
   const recipes = useSelector((state) => state.recipes);

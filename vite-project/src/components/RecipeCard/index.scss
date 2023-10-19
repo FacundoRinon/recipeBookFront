@@ -66,6 +66,7 @@
 
 @media (min-width: 576px) {
   .recipeCard__description {
+    overflow-wrap: break-word;
     text-align: justify;
     width: 45%;
   }

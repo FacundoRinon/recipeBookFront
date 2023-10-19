@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import "./index.scss";
-import Navbar from "../../components/Navbar";
-import Feed from "../../components/Feed";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setRecipes } from "../../redux/recipesSlice";
+
+import Navbar from "../../components/Navbar";
+import Feed from "../../components/Feed";
+
+import "./index.scss";
 
 function Home() {
   const user = useSelector((state) => state.user);

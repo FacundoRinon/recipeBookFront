@@ -1,9 +1,11 @@
 import React from "react";
-import "./index.scss";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+
 import { toggleRecipeBook } from "../../redux/userSlice";
+
+import "./index.scss";
 
 const RecipeCard = ({ recipe }) => {
   const user = useSelector((state) => state.user);
@@ -13,6 +15,8 @@ const RecipeCard = ({ recipe }) => {
   const recipeExistsInCookingBook = user.cookingBook.some(
     (bookRecipe) => bookRecipe.id === recipe.id
   );
+
+  // console.log(recipe);
 
   const addToBook = async () => {
     try {
@@ -41,9 +45,11 @@ const RecipeCard = ({ recipe }) => {
             />
           </div>
           <div className="recipeCard__userData">
-            <h2>
-              {recipe.author.firstname} {recipe.author.lastname}
-            </h2>
+            <Link to={`/user/${recipe.author._id}`}>
+              <h2>
+                {recipe.author.firstname} {recipe.author.lastname}
+              </h2>
+            </Link>
             <p>{recipe.createdAt}</p>
           </div>
         </div>
