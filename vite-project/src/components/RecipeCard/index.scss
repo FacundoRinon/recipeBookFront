@@ -78,6 +78,7 @@
 
 @media (max-width: 575px) {
   .recipeCard__description {
+    overflow-wrap: break-word;
     text-align: justify;
     width: 85%;
   }
@@ -117,4 +118,9 @@
 .recipeCard__button:hover {
   transform: scale(1.05);
   cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  color: $color-primary;
 }

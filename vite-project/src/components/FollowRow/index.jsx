@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 import { toggleFollow } from "../../redux/userSlice";
@@ -47,9 +48,11 @@ const FollowRow = ({ follow }) => {
         </div>
         <div className="followRow__user">
           <div className="followRow__usernames">
-            <h2 className="followRow__username">
-              {follow.firstname} {follow.lastname}
-            </h2>
+            <Link className="link" to={`/user/${follow._id}`}>
+              <h2 className="followRow__username">
+                {follow.firstname} {follow.lastname}
+              </h2>
+            </Link>
             <small className="followRow__username">@{follow.username}</small>
           </div>
           <div className="followRow__userRecipies">

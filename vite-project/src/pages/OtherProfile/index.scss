@@ -103,16 +103,26 @@
   justify-content: space-between;
 }
 
-.otherProfile__createRecipe {
+.otherProfile__follow {
   display: flex;
   align-items: center;
 
-  & .otherProfile__createRecipeButton,
-  .otherProfile__editProfileButton {
-    border: 2px solid $color-primary;
-    border-radius: 5px;
-    padding: 0.25rem;
-    margin: 0.25rem;
+  & .otherProfile__followButton {
+    &--follow {
+      border-radius: 5px;
+      padding: 0.25rem;
+      margin: 0.25rem;
+      border: 2px solid $color-primary;
+    }
+
+    &--unfollow {
+      border-radius: 5px;
+      padding: 0.25rem;
+      margin: 0.25rem;
+      border: 2px solid white;
+      background-color: $color-primary;
+      color: white;
+    }
   }
 }
 

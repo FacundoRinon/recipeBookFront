@@ -1,0 +1,51 @@
+@import "../../theme/variables.scss";
+
+.follows {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.follows__userRow {
+  display: flex;
+  align-items: center;
+  color: $color-primary;
+  width: 100%;
+  background-color: black;
+}
+
+.follows__userRowBack {
+  margin-left: 10%;
+  margin-right: 1rem;
+}
+
+.follows__followsButtons {
+  color: $color-primary;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+  border-bottom: 3px solid $color-primary;
+}
+
+.follows__button {
+  &--active {
+    padding: 0.5rem;
+    color: $color-primary;
+    background-color: white;
+    border: 3px solid $color-primary;
+    border-radius: 10px;
+  }
+
+  &--inactive {
+    padding: 0.5rem;
+    color: $color-primary;
+    background-color: black;
+    border: 3px solid $color-primary;
+    border-radius: 5px;
+  }
+}
+
+.follows__follows {
+  width: 80%;
+}

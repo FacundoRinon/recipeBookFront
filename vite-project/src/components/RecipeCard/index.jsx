@@ -45,7 +45,7 @@ const RecipeCard = ({ recipe }) => {
             />
           </div>
           <div className="recipeCard__userData">
-            <Link to={`/user/${recipe.author._id}`}>
+            <Link className="link" to={`/user/${recipe.author._id}`}>
               <h2>
                 {recipe.author.firstname} {recipe.author.lastname}
               </h2>
@@ -53,7 +53,7 @@ const RecipeCard = ({ recipe }) => {
             <p>{recipe.createdAt}</p>
           </div>
         </div>
-        <Link to={`/recipe/${url}`}>
+        <Link className="link" to={`/recipe/${url}`}>
           <div className="recipeCard__contentRow">
             <div className="recipeCard__description">
               <p>{recipe.name}</p>

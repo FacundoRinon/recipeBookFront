@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 
 import Navbar from "../../components/Navbar";
 import RecipeCard from "../../components/RecipeCard";
+import { toggleFollow } from "../../redux/userSlice";
 
 import "./index.scss";
 
@@ -15,8 +16,9 @@ const OtherProfile = () => {
 
   const [renderRecipes, setRenderRecipes] = useState([]);
 
+  const dispatch = useDispatch();
+
   async function getOtherProfile(event) {
-    // event.preventDefault();
     const response = await axios({
       method: "GET",
       url: `${import.meta.env.VITE_API_URL}/user/${id}`,
@@ -28,9 +30,24 @@ const OtherProfile = () => {
     setRenderRecipes(response.data.recipes);
   }
 
+  async function handleFollow() {
+    try {
+      const response = axios({
+        method: "PATCH",
+        url: `${import.meta.env.VITE_API_URL}/user/${id}`,
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
+      dispatch(toggleFollow({ user: user, follow: otherUser }));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
     getOtherProfile();
-  }, []);
+  }, [user.following]);
 
   return (
     <>
@@ -54,14 +71,36 @@ const OtherProfile = () => {
                 <p>@{otherUser.username}</p>
               </div>
               <div className="otherProfile__bottomRow">
-                <div className="otherProfile__createRecipe">
-                  <Link to="/newRecipe" className="link">
-                    <p className="otherProfile__createRecipeButton">Follow</p>
-                  </Link>
+                <div className="otherProfile__follow">
+                  {otherUser && user.following.includes(otherUser._id) ? (
+                    <p
+                      onClick={handleFollow}
+                      className="otherProfile__followButton--unfollow"
+                    >
+                      Unfollow
+                    </p>
+                  ) : (
+                    <p
+                      onClick={handleFollow}
+                      className="otherProfile__followButton--follow"
+                    >
+                      Follow
+                    </p>
+                  )}
                 </div>
                 <div className="otherProfile__follows">
-                  <p>{otherUser.followers.length} followers</p>
-                  <p>{otherUser.following.length} following</p>
+                  <Link
+                    className="link"
+                    to={`/follows/${otherUser._id}?type=followers`}
+                  >
+                    <p>{otherUser.followers.length} followers</p>
+                  </Link>
+                  <Link
+                    className="link"
+                    to={`/follows/${user.id}?type=followers`}
+                  >
+                    <p>{otherUser.following.length} following</p>
+                  </Link>
                 </div>
               </div>
             </div>

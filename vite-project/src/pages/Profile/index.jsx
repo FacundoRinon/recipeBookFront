@@ -43,8 +43,18 @@ const Profile = () => {
                 </Link>
               </div>
               <div className="profile__follows">
-                <p>{user.followers.length} followers</p>
-                <p>{user.following.length} following</p>
+                <Link
+                  className="link"
+                  to={`/follows/${user.id}?type=followers`}
+                >
+                  <p>{user.followers.length} followers</p>
+                </Link>
+                <Link
+                  className="link"
+                  to={`/follows/${user.id}?type=following`}
+                >
+                  <p>{user.following.length} following</p>
+                </Link>
               </div>
             </div>
           </div>
