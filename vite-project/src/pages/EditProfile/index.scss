@@ -94,4 +94,9 @@
   padding: 0.5rem;
   color: $color-primary;
   width: 25%;
+  cursor: pointer;
+  transition: transform 0.5s;
+  &:hover {
+    transform: scale(1.03);
+  }
 }
