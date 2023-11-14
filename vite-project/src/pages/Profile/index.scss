@@ -75,7 +75,7 @@
 
     &--active {
       background-color: $color-primary;
-      color: white;
+      color: white !important;
     }
 
     @media (max-width: 576px) {

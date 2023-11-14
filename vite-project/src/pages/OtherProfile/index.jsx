@@ -72,23 +72,25 @@ const OtherProfile = () => {
                 <p>@{otherUser.username}</p>
               </div>
               <div className="otherProfile__bottomRow">
-                <div className="otherProfile__follow">
-                  {otherUser && user.following.includes(otherUser._id) ? (
-                    <p
-                      onClick={handleFollow}
-                      className="otherProfile__followButton--unfollow"
-                    >
-                      Unfollow
-                    </p>
-                  ) : (
-                    <p
-                      onClick={handleFollow}
-                      className="otherProfile__followButton--follow"
-                    >
-                      Follow
-                    </p>
-                  )}
-                </div>
+                {user.id !== otherUser._id && (
+                  <div className="otherProfile__follow">
+                    {otherUser && user.following.includes(otherUser._id) ? (
+                      <p
+                        onClick={handleFollow}
+                        className="otherProfile__followButton--unfollow"
+                      >
+                        Unfollow
+                      </p>
+                    ) : (
+                      <p
+                        onClick={handleFollow}
+                        className="otherProfile__followButton--follow"
+                      >
+                        Follow
+                      </p>
+                    )}
+                  </div>
+                )}
                 <div className="otherProfile__follows">
                   <Link
                     className="link"
