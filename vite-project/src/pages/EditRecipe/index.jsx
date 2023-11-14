@@ -102,7 +102,6 @@ const EditRecipe = () => {
         "Content-Type": "multipart/form-data",
       },
     });
-    console.log("llega hasta aca");
     navigate("/");
   }
 
