@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { format } from "date-fns";
+import { enUS } from "date-fns/locale";
 
 import { toggleRecipeBook } from "../../redux/userSlice";
 
@@ -50,7 +52,11 @@ const RecipeCard = ({ recipe }) => {
                 {recipe.author.firstname} {recipe.author.lastname}
               </h2>
             </Link>
-            <p>{recipe.createdAt}</p>
+            <p>
+              {format(new Date(recipe.createdAt), "PPpp", {
+                locale: enUS,
+              })}
+            </p>
           </div>
         </div>
         <Link className="link" to={`/recipe/${url}`}>

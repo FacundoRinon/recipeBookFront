@@ -22,13 +22,6 @@
   flex-wrap: wrap;
 }
 
-.signUp__form {
-  width: 50%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 #form {
   display: flex;
   flex-wrap: wrap;
@@ -44,11 +37,33 @@
   border-radius: 5px;
 }
 
-.signUp__carousell {
-  width: 50%;
-  background-color: $color-primary;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+@media (max-width: 576px) {
+  .signUp__form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .signUp__carousell {
+    display: none;
+  }
+}
+
+@media (min-width: 577px) {
+  .signUp__form {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .signUp__carousell {
+    width: 50%;
+    background-color: $color-primary;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
 }
 
 .signUp__button {

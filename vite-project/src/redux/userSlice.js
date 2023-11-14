@@ -37,10 +37,27 @@ const userSlice = createSlice({
       };
       return updatedUser;
     },
+    removeRecipe: (state, action) => {
+      console.log(action.payload);
+      const { user, recipe } = action.payload;
+
+      const updatedUser = {
+        ...user,
+        recipes: user.recipes.filter(
+          (userRecipe) => userRecipe.id !== recipe.id
+        ),
+      };
+      return updatedUser;
+    },
   },
 });
 
 const { actions, reducer } = userSlice;
-export const { setToken, removeToken, toggleFollow, toggleRecipeBook } =
-  actions;
+export const {
+  setToken,
+  removeToken,
+  toggleFollow,
+  toggleRecipeBook,
+  removeRecipe,
+} = actions;
 export default reducer;

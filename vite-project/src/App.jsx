@@ -11,6 +11,7 @@ import RecipePage from "./pages/RecipePage";
 import OtherProfile from "./pages/OtherProfile";
 import EditProfile from "./pages/EditProfile";
 import Follows from "./pages/Follows";
+import EditRecipe from "./pages/EditRecipe";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/user/:id" element={<OtherProfile />} />
           <Route path="/editProfile" element={<EditProfile />} />
           <Route path="/follows/:id" element={<Follows />} />
+          <Route path="/recipe/edit/:id" element={<EditRecipe />} />
         </Route>
       </Routes>
     </>

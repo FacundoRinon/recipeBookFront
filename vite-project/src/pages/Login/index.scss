@@ -61,3 +61,13 @@
   margin: 1rem;
   padding: 0.5rem;
 }
+
+@media (max-width: 576px) {
+  .login__form {
+    width: 100%;
+  }
+
+  .login__carousell {
+    display: none;
+  }
+}

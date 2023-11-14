@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import queryString from "query-string";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUndo } from "@fortawesome/free-solid-svg-icons";
 
 import Navbar from "../../components/Navbar";
 import FollowRow from "../../components/FollowRow";
@@ -15,6 +18,8 @@ const Follows = () => {
   const user = useSelector((state) => state.user);
   const [profile, setProfile] = useState(null);
   const [show, setShow] = useState("");
+
+  const navigate = useNavigate();
 
   const location = useLocation();
   const queryParams = queryString.parse(location.search);
@@ -42,7 +47,13 @@ const Follows = () => {
       {profile && (
         <div className="follows">
           <div className="follows__userRow">
-            <p className="follows__userRowBack">Back</p>
+            <p className="follows__userRowBack">
+              <FontAwesomeIcon
+                onClick={() => navigate("/profile")}
+                className="navBar__icon"
+                icon={faUndo}
+              />
+            </p>
             <h2 className="follows__userRowName">
               {profile.firstname} {profile.lastname}
             </h2>

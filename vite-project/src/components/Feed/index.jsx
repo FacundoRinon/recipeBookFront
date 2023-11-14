@@ -11,7 +11,7 @@ const Feed = () => {
     <>
       <div className="feed">
         <div className="feed__header">
-          <h1>New recipies</h1>
+          <h1 className="feed__feed">Feed</h1>
         </div>
         <div className="feed__content">
           {recipes ? (

@@ -4,6 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 4rem;
 }
 
 .recipePage__container {
@@ -69,4 +70,38 @@
   padding: 1rem;
   overflow-wrap: break-word;
   text-align: justify;
+}
+
+.recipePage__buttons {
+  width: 96%;
+  margin: 1rem;
+  display: flex;
+  justify-content: end;
+}
+
+.recipePage__button {
+  &--edit {
+    color: green;
+    background-color: white;
+    border: 2px solid green;
+    border-radius: 10px;
+    margin: 0.5rem;
+  }
+
+  &--edit:hover,
+  &--delete:hover {
+    transform: scale(1.05);
+  }
+
+  &--delete {
+    color: red;
+    background-color: white;
+    border: 2px solid red;
+    border-radius: 10px;
+    margin: 0.5rem;
+  }
+}
+
+.recipePage__loader {
+  color: $color-primary;
 }

@@ -1,3 +1,5 @@
+@import "../../theme/variables.scss";
+
 .feed {
   display: flex;
   flex-wrap: wrap;
@@ -6,8 +8,14 @@
 
 .feed__header {
   display: flex;
-  justify-content: center;
   width: 100%;
+  background-color: black;
+  border-bottom: 3px solid $color-primary;
+  color: $color-primary;
+}
+
+.feed__feed {
+  margin-left: 1rem;
 }
 
 .feed__content {
