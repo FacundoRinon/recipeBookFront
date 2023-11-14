@@ -5,54 +5,49 @@
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 4rem;
-}
-.search__searcherRow {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  background-color: black;
-  border-bottom: 5px solid $color-primary;
-  justify-content: space-evenly;
-  align-items: center;
-}
+  &__searcherRow {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: black;
+    border-bottom: 5px solid $color-primary;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 
-.search__header {
-  width: 100%;
-  color: $color-primary;
-  text-align: center;
-}
+  &__header {
+    width: 100%;
+    color: $color-primary;
+    text-align: center;
+  }
 
-@media (max-width: 576px) {
-  .search__userAvatar {
+  &__userAvatar {
     width: 10rem;
     height: 10rem;
     border-radius: 50%;
     margin: 1rem;
     border: 3px solid $color-primary;
+    @media (max-width: 576px) {
+      width: 10rem;
+      height: 10rem;
+      border-radius: 50%;
+      margin: 1rem;
+      border: 3px solid $color-primary;
+    }
   }
-}
 
-@media (min-width: 577px) {
-  .search__userAvatar {
-    width: 10rem;
-    height: 10rem;
-    border-radius: 50%;
+  &__searcher {
     margin: 1rem;
+    padding: 0.5rem;
+    width: 75%;
+    height: 2rem;
     border: 3px solid $color-primary;
+    border-radius: 10px;
+    color: $color-primary;
+    background-color: black;
   }
-}
 
-.search__searcher {
-  margin: 1rem;
-  padding: 0.5rem;
-  width: 75%;
-  height: 2rem;
-  border: 3px solid $color-primary;
-  border-radius: 10px;
-  color: $color-primary;
-  background-color: black;
-}
-
-.search__results {
-  width: 80%;
+  &__results {
+    width: 80%;
+  }
 }
