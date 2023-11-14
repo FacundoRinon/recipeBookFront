@@ -4,24 +4,24 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
 
-.feed__header {
-  display: flex;
-  width: 100%;
-  background-color: black;
-  border-bottom: 3px solid $color-primary;
-  color: $color-primary;
-}
+  &__header {
+    display: flex;
+    width: 100%;
+    background-color: black;
+    border-bottom: 3px solid $color-primary;
+    color: $color-primary;
+  }
 
-.feed__feed {
-  margin-left: 1rem;
-}
+  &__feed {
+    margin-left: 1rem;
+  }
 
-.feed__content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  width: 90%;
-  margin: 1rem;
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 90%;
+    margin: 1rem;
+  }
 }
