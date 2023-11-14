@@ -1,125 +1,111 @@
 @import "../../theme/variables.scss";
 
-@media (min-width: 1000px) {
-  .recipeCard {
+.recipeCard {
+  width: 90%;
+  margin-top: 1rem;
+  border: 2px solid $color-primary;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  background-color: white;
+  transition: transform 0.5s;
+  &:hover {
+    transform: scale(1.02);
+  }
+  @media (min-width: 1000px) {
     width: 45%;
     margin-top: 1rem;
     margin-bottom: 2rem;
     border-radius: 10px;
     background-color: white;
   }
-}
-
-@media (max-width: 999px) {
-  .recipeCard {
-    width: 100%;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-    border-radius: 10px;
-    background-color: white;
-  }
-}
-
-.recipeCard__userRow {
-  display: flex;
-  background-color: black;
-  border-bottom: 5px solid $color-primary;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  margin-bottom: 0.5rem;
-}
-
-@media (min-width: 420px) {
-  .recipeCard__picSpace {
+  &__userRow {
     display: flex;
-    width: 20%;
-    justify-content: center;
-    align-items: center;
+    background-color: black;
+    border-bottom: 5px solid $color-primary;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 0.5rem;
   }
-}
 
-@media (max-width: 419px) {
-  .recipeCard__picSpace {
+  &__picSpace {
     display: flex;
     width: 40%;
     justify-content: center;
     align-items: center;
+    @media (min-width: 420px) {
+      display: flex;
+      width: 20%;
+      justify-content: center;
+      align-items: center;
+    }
   }
-}
 
-.recipeCard__userImg {
-  width: 3.5rem;
-  height: 3.5rem;
-  border: 3px solid $color-primary;
-  border-radius: 50%;
-  margin: 0.5rem;
-}
-.recipeCard__userData {
-  color: $color-primary;
-}
+  &__userImg {
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 3px solid $color-primary;
+    border-radius: 50%;
+    margin: 0.5rem;
+  }
+  &__userData {
+    color: $color-primary;
+  }
 
-.recipeCard__contentRow {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-@media (min-width: 576px) {
-  .recipeCard__description {
+  &__contentRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  &__description {
     overflow-wrap: break-word;
     text-align: justify;
     width: 45%;
     height: 280px;
     overflow: scroll;
+    @media (max-width: 575px) {
+      height: auto;
+      width: 85%;
+    }
   }
 
-  .recipeCard__recipePicSpace {
+  &__recipePicSpace {
     width: 45%;
-  }
-}
-
-@media (max-width: 575px) {
-  .recipeCard__description {
-    overflow-wrap: break-word;
-    text-align: justify;
-    width: 85%;
+    @media (max-width: 575px) {
+      width: 85%;
+    }
   }
 
-  .recipeCard__recipePicSpace {
-    width: 85%;
+  &__recipeImg {
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 3px solid $color-primary;
   }
-}
 
-.recipeCard__recipeImg {
-  width: 100%;
-  height: 15rem;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border: 3px solid $color-primary;
-}
+  &__footerRow {
+    border-top: 5px solid $color-primary;
+    margin-top: 1rem;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: black;
+  }
 
-.recipeCard__footerRow {
-  border-top: 5px solid $color-primary;
-  margin-top: 1rem;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  background-color: black;
-}
-
-.recipeCard__button {
-  margin: 0.5rem;
-  padding: 0.5rem;
-  border: 2px solid $color-primary;
-  border-radius: 5px;
-  color: $color-primary;
-  background-color: black;
-}
-
-.recipeCard__button:hover {
-  transform: scale(1.05);
-  cursor: pointer;
+  &__button {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 2px solid $color-primary;
+    border-radius: 5px;
+    color: $color-primary;
+    background-color: black;
+    cursor: pointer;
+    transition: transform 0.5s;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
 }
 
 .link {
