@@ -111,6 +111,10 @@
     border-radius: 5px;
     padding: 0.25rem;
     margin: 0.25rem;
+    transition: transform 0.5s;
+    &:hover {
+      transform: scale(1.05);
+    }
   }
   &__follows {
     display: flex;
@@ -119,6 +123,11 @@
 
     & p {
       margin: 0.5rem;
+      transition: transform 0.5s;
+      &:hover {
+        transform: scale(1.05);
+        border-bottom: 2px solid $color-primary;
+      }
     }
   }
   &__userRecipes {

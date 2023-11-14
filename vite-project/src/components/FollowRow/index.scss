@@ -1,7 +1,16 @@
 @import "../../theme/variables.scss";
 
-@media (max-width: 576px) {
-  .followRow {
+.followRow {
+  margin: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  border: 4px solid $color-primary;
+  border-radius: 10px;
+  padding: 1rem;
+  color: $color-primary;
+  background-color: black;
+
+  @media (max-width: 576px) {
     margin-top: 1rem;
     display: flex;
     flex-wrap: wrap;
@@ -12,73 +21,50 @@
     background-color: black;
   }
 
-  .followRow__avatarRow {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-  .followRow__avatar {
+  &__avatarRow {
     width: 20%;
-    border-radius: 50%;
-    border: 3px solid $color-primary;
-  }
-
-  .followRow__user {
-    //   display: flex;
-    width: 100%;
-  }
-
-  .followRow__usernames {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .followRow__button {
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    & p {
-      border: 2px solid $color-primary;
-      border-radius: 10px;
-      padding: 0.25rem;
+    @media (max-width: 576px) {
+      display: flex;
+      justify-content: center;
+      width: 100%;
     }
   }
-}
-
-@media (min-width: 577px) {
-  .followRow {
-    margin: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    border: 4px solid $color-primary;
-    border-radius: 10px;
-    padding: 1rem;
-    color: $color-primary;
-    background-color: black;
-  }
-
-  .followRow__avatarRow {
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .followRow__avatar {
+  &__avatar {
     width: 6rem;
     height: 6rem;
     border-radius: 50%;
     border: 3px solid $color-primary;
+    @media (max-width: 576px) {
+      border-radius: 50%;
+      border: 3px solid $color-primary;
+    }
   }
 
-  .followRow__user {
-    //   display: flex;
+  &__user {
     width: 65%;
+    @media (max-width: 576px) {
+      width: 100%;
+    }
   }
 
-  .followRow__button {
+  &__usernames {
+    display: flex;
+    align-items: center;
+    @media (max-width: 576px) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__username {
+    padding-left: 1rem;
+  }
+
+  &__button {
     width: 15%;
     display: flex;
     justify-content: center;
@@ -89,23 +75,26 @@
       border-radius: 10px;
       padding: 0.5rem;
     }
+    @media (max-width: 576px) {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & p {
+        border: 2px solid $color-primary;
+        border-radius: 10px;
+        padding: 0.25rem;
+      }
+    }
   }
-}
 
-.followRow__usernames {
-  display: flex;
-  align-items: center;
-
-  & .followRow__username {
-    padding-left: 1rem;
+  &__userRecipies {
+    display: flex;
+    align-items: center;
   }
-}
 
-.followRow__userRecipies {
-  display: flex;
-  align-items: center;
-
-  & .followRow__userRecipie {
+  &__userRecipie {
     padding-left: 1rem;
   }
 }
