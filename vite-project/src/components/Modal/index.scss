@@ -28,11 +28,6 @@
   }
 
   &__button {
-    cursor: pointer;
-    transition: transform 0.5s;
-    &:hover {
-      transform: scale(1.05);
-    }
     &--cancel {
       background-color: black;
       border: 1px solid black;
@@ -40,6 +35,11 @@
       padding: 0.5rem;
       color: white;
       margin: 0.5rem;
+      cursor: pointer;
+      transition: transform 0.5s;
+      &:hover {
+        transform: scale(1.05);
+      }
     }
 
     &--delete {
@@ -49,6 +49,11 @@
       padding: 0.5rem;
       color: white;
       margin: 0.5rem;
+      cursor: pointer;
+      transition: transform 0.5s;
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
 }
