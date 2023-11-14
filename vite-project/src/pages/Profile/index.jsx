@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { render } from "react-dom";
+import cn from "classnames";
 
 import Navbar from "../../components/Navbar";
 import RecipeCard from "../../components/RecipeCard";
@@ -62,13 +62,18 @@ const Profile = () => {
         <div className="profile__userRecipes">
           <div className="profile__header">
             <h3
-              className="profile__headerButton"
+              className={cn("profile__headerButton", {
+                "profile__headerButton--active": renderRecipes === user.recipes,
+              })}
               onClick={() => setRenderRecipes(user.recipes)}
             >
               Your recipies
             </h3>
             <h3
-              className="profile__headerButton"
+              className={cn("profile__headerButton", {
+                "profile__headerButton--active":
+                  renderRecipes === user.cookingBook,
+              })}
               onClick={() => setRenderRecipes(user.cookingBook)}
             >
               Cooking book
