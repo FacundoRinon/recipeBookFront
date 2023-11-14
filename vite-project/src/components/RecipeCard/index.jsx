@@ -11,14 +11,12 @@ import "./index.scss";
 
 const RecipeCard = ({ recipe }) => {
   const user = useSelector((state) => state.user);
-  const url = recipe.id; //esta bien, ya lo confirmo un console.log = Este es el id de la receta
+  const url = recipe.id;
   const dispatch = useDispatch();
 
   const recipeExistsInCookingBook = user.cookingBook.some(
     (bookRecipe) => bookRecipe.id === recipe.id
   );
-
-  // console.log(recipe);
 
   const addToBook = async () => {
     try {
