@@ -38,7 +38,6 @@ const userSlice = createSlice({
       return updatedUser;
     },
     removeRecipe: (state, action) => {
-      console.log(action.payload);
       const { user, recipe } = action.payload;
 
       const updatedUser = {
