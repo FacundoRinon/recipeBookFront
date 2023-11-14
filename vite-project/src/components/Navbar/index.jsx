@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSearch,
-  faHome,
   faSignOut,
   faUser,
-  faBook,
   faBookOpen,
   faBars,
 } from "@fortawesome/free-solid-svg-icons";
