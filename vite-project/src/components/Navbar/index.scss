@@ -15,6 +15,10 @@
   &__brand {
     display: flex;
     align-items: center;
+    transition: transform 0.5s;
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   &__name {
@@ -65,9 +69,11 @@
     color: $color-primary;
     display: flex;
     align-items: center;
+    cursor: pointer;
+    transition: transform 0.5s;
 
     &:hover {
-      cursor: pointer;
+      transform: scale(1.05);
     }
   }
 
