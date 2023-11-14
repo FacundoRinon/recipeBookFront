@@ -1,7 +1,8 @@
 import React from "react";
+
 import "./index.scss";
 
-const Modal = ({ text, handle, recipe, onClose, isModalVisible }) => {
+const Modal = ({ text, handle, onClose, isModalVisible }) => {
   return isModalVisible ? (
     <div className="modal-container">
       <div className="modal">
