@@ -21,30 +21,29 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-}
-
-.modal__text {
-  width: 100%;
-  font-size: 1.5rem;
-  text-align: center;
-}
-
-.modal__button {
-  &--cancel {
-    background-color: black;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 0.5rem;
-    color: white;
-    margin: 0.5rem;
+  &__text {
+    width: 100%;
+    font-size: 1.5rem;
+    text-align: center;
   }
 
-  &--delete {
-    background-color: $color-primary;
-    border: 1px solid $color-primary;
-    border-radius: 5px;
-    padding: 0.5rem;
-    color: white;
-    margin: 0.5rem;
+  &__button {
+    &--cancel {
+      background-color: black;
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 0.5rem;
+      color: white;
+      margin: 0.5rem;
+    }
+
+    &--delete {
+      background-color: $color-primary;
+      border: 1px solid $color-primary;
+      border-radius: 5px;
+      padding: 0.5rem;
+      color: white;
+      margin: 0.5rem;
+    }
   }
 }

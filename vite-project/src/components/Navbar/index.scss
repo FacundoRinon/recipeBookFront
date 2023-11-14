@@ -11,88 +11,79 @@
   height: 4rem;
   border-bottom: solid 2px $color-primary;
   background-color: black;
-}
 
-.navBar__brand {
-  //   border: 1px solid blue;
-  display: flex;
-  align-items: center;
-}
+  &__brand {
+    display: flex;
+    align-items: center;
+    transition: transform 0.5s;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
 
-.navBar__name {
-  margin: 0.5rem;
-  color: $color-primary;
-  display: flex;
-  align-items: center;
-}
+  &__name {
+    margin: 0.5rem;
+    color: $color-primary;
+    display: flex;
+    align-items: center;
+  }
 
-.navBar__icon {
-  color: $color-primary;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  font-size: 1.5rem;
-}
+  &__icon {
+    color: $color-primary;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+  }
 
-@media (min-width: 576px) {
-  .navBar__buttons {
+  &__buttons {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    @media (max-width: 577px) {
+      display: none;
+    }
   }
 
-  .navBar__select {
+  &__select {
     display: none;
+    @media (max-width: 577px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
-  .navBar__drop {
-    display: none;
-  }
-}
-
-@media (max-width: 577px) {
-  .navBar__buttons {
-    display: none;
-  }
-
-  .navBar__select {
-    // width: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .navBar__drop {
+  &__drop {
     color: $color-primary;
     width: 100%;
     position: fixed;
     background-color: black;
     border-bottom: 3px solid $color-primary;
+    @media (min-width: 578px) {
+      display: none;
+    }
   }
 
-  .navbar__dropButton {
-    margin-left: 0.5rem;
+  &__button {
+    margin: 0.5rem;
+    color: $color-primary;
     display: flex;
     align-items: center;
-  }
-}
-
-.navBar__button {
-  margin: 0.5rem;
-  color: $color-primary;
-  display: flex;
-  align-items: center;
-
-  &:hover {
     cursor: pointer;
-  }
-}
+    transition: transform 0.5s;
 
-.navBar__selectButton {
-  border: 3px solid $color-primary;
-  border-radius: 10px;
-  background-color: black;
-  color: $color-primary;
-  margin-right: 0.5rem;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__selectButton {
+    border: 3px solid $color-primary;
+    border-radius: 10px;
+    background-color: black;
+    color: $color-primary;
+    margin-right: 0.5rem;
+  }
 }
 
 .link {
