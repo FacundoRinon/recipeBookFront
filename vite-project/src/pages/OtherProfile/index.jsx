@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
+import cn from "classnames";
 
 import Navbar from "../../components/Navbar";
 import RecipeCard from "../../components/RecipeCard";
@@ -108,13 +109,19 @@ const OtherProfile = () => {
           <div className="otherProfile__userRecipes">
             <div className="otherProfile__header">
               <h3
-                className="otherProfile__headerButton"
+                className={cn("otherProfile__headerButton", {
+                  "otherProfile__headerButton--active":
+                    renderRecipes === otherUser.recipes,
+                })}
                 onClick={() => setRenderRecipes(otherUser.recipes)}
               >
                 Your recipies
               </h3>
               <h3
-                className="otherProfile__headerButton"
+                className={cn("otherProfile__headerButton", {
+                  "otherProfile__headerButton--active":
+                    renderRecipes === otherUser.cookingBook,
+                })}
                 onClick={() => setRenderRecipes(otherUser.cookingBook)}
               >
                 Cooking book
