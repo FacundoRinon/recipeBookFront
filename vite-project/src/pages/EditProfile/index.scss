@@ -5,98 +5,98 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 4rem;
-}
 
-.editProfile__userAvatar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.editProfile__avatar {
-  height: 13rem;
-  width: 13rem;
-  border-radius: 50%;
-  border: 3px solid $color-primary;
-}
-
-.editProfile__container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  background-color: black;
-  border: 3px solid $color-primary;
-  border-radius: 10px;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  width: 80%;
-  color: $color-primary;
-}
-
-.editProfile__userRow {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
-}
-
-.editProfile__userData {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  text-align: center;
-
-  & .editProfile__userProp {
+  &__userAvatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
   }
-}
 
-.editProfile__form {
-  display: flex;
-  flex-wrap: wrap;
-}
+  &__avatar {
+    height: 13rem;
+    width: 13rem;
+    border-radius: 50%;
+    border: 3px solid $color-primary;
+  }
 
-.editProfile__formRow {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
+  &__container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: black;
+    border: 3px solid $color-primary;
+    border-radius: 10px;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    width: 80%;
+    color: $color-primary;
+  }
 
-.editProfile__formLabel {
-  width: 45%;
-  margin: 0.5rem;
-}
+  &__userRow {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
 
-.editProfile__formInput {
-  width: 45%;
-  border: 3px solid $color-primary;
-  border-radius: 5px;
-  background-color: black;
-  color: $color-primary;
-  margin: 0.5rem;
-}
+  &__userData {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
 
-.editProfile__formButtonRow {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
+  &__userProp {
+    width: 100%;
+  }
 
-.editProfile__formButton {
-  background-color: white;
-  border: 3px solid $color-primary;
-  border-radius: 5px;
-  margin-top: 1rem;
-  padding: 0.5rem;
-  color: $color-primary;
-  width: 25%;
-  cursor: pointer;
-  transition: transform 0.5s;
-  &:hover {
-    transform: scale(1.03);
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__formRow {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__formLabel {
+    width: 45%;
+    margin: 0.5rem;
+  }
+
+  &__formInput {
+    width: 45%;
+    border: 3px solid $color-primary;
+    border-radius: 5px;
+    background-color: black;
+    color: $color-primary;
+    margin: 0.5rem;
+  }
+
+  &__formButtonRow {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__formButton {
+    background-color: white;
+    border: 3px solid $color-primary;
+    border-radius: 5px;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    color: $color-primary;
+    width: 25%;
+    cursor: pointer;
+    transition: transform 0.5s;
+    &:hover {
+      transform: scale(1.03);
+    }
   }
 }
