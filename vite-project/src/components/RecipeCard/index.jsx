@@ -59,6 +59,7 @@ const RecipeCard = ({ recipe }) => {
   return (
     <>
       <div className="recipeCard">
+        <ToastContainer />
         <div className="recipeCard__userRow">
           <div className="recipeCard__picSpace">
             <img
@@ -106,7 +107,6 @@ const RecipeCard = ({ recipe }) => {
             </button>
           )}
         </div>
-        <ToastContainer />
       </div>
     </>
   );
