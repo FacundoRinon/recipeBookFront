@@ -26,7 +26,7 @@ const FollowRow = ({ follow }) => {
           Authorization: `Bearer ${user.token}`,
         },
       });
-      dispatch(toggleFollow({ user: user, follow: follow._id }));
+      dispatch(toggleFollow({ follow: follow._id }));
     } catch (error) {
       console.log(error);
     }

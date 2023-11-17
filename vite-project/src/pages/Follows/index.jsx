@@ -53,7 +53,7 @@ const Follows = () => {
           <div className="follows__userRow">
             <p className="follows__userRowBack">
               <FontAwesomeIcon
-                onClick={() => navigate("/profile")}
+                onClick={() => navigate(-1)}
                 className="navBar__icon"
                 icon={faUndo}
               />

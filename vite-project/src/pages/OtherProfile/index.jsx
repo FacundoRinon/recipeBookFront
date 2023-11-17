@@ -16,20 +16,8 @@ const OtherProfile = () => {
   const [otherUser, setOtherUser] = useState(null);
 
   const [renderRecipes, setRenderRecipes] = useState([]);
-
+  const [isFollowing, setIsFollowing] = useState(false);
   const dispatch = useDispatch();
-
-  async function getOtherProfile(event) {
-    const response = await axios({
-      method: "GET",
-      url: `${import.meta.env.VITE_API_URL}/user/${id}`,
-      headers: {
-        Authorization: `Bearer ${user.token}`,
-      },
-    });
-    setOtherUser(response.data);
-    setRenderRecipes(response.data.recipes);
-  }
 
   async function handleFollow() {
     try {
@@ -40,15 +28,31 @@ const OtherProfile = () => {
           Authorization: `Bearer ${user.token}`,
         },
       });
-      dispatch(toggleFollow({ user: user, follow: otherUser }));
+      dispatch(toggleFollow({ follow: otherUser._id }));
     } catch (error) {
       console.log(error);
     }
   }
 
   useEffect(() => {
+    async function getOtherProfile(event) {
+      try {
+        const response = await axios({
+          method: "GET",
+          url: `${import.meta.env.VITE_API_URL}/user/${id}`,
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        });
+        setOtherUser(response.data);
+        setRenderRecipes(response.data.recipes);
+        setIsFollowing(user.following.includes(otherUser._id));
+      } catch (error) {
+        console.log(error);
+      }
+    }
     getOtherProfile();
-  }, [user.following]);
+  }, [id, user.following, otherUser]);
 
   return (
     <>
@@ -74,7 +78,7 @@ const OtherProfile = () => {
               <div className="otherProfile__bottomRow">
                 {user.id !== otherUser._id && (
                   <div className="otherProfile__follow">
-                    {otherUser && otherUser.followers.includes(user.id) ? (
+                    {otherUser && isFollowing ? (
                       <p
                         onClick={handleFollow}
                         className="otherProfile__followButton--unfollow"
@@ -94,15 +98,15 @@ const OtherProfile = () => {
                 <div className="otherProfile__follows">
                   <Link
                     className="link"
-                    to={`/follows/${otherUser._id}?type=followers`}
+                    to={`/follows/${otherUser._id}?type=following`}
                   >
-                    <p>{otherUser.followers.length} followers</p>
+                    <p>{otherUser.following.length} following</p>
                   </Link>
                   <Link
                     className="link"
-                    to={`/follows/${user.id}?type=followers`}
+                    to={`/follows/${otherUser._id}?type=followers`}
                   >
-                    <p>{otherUser.following.length} following</p>
+                    <p>{otherUser.followers.length} followers</p>
                   </Link>
                 </div>
               </div>
