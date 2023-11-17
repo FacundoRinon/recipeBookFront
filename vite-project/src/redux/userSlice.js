@@ -11,15 +11,16 @@ const userSlice = createSlice({
       return null;
     },
     toggleFollow: (state, action) => {
-      const { follow, user } = action.payload;
+      const { follow } = action.payload;
+      const isFollowing = state.following.includes(follow);
+      const updatedFollowing = isFollowing
+        ? state.following.filter((id) => id !== follow)
+        : [...state.following, follow];
 
       const updatedUser = {
-        ...user,
-        following: user.following.includes(follow._id)
-          ? user.following.filter((id) => id !== follow._id)
-          : [...user.following, follow._id],
+        ...state,
+        following: updatedFollowing,
       };
-
       return updatedUser;
     },
     toggleRecipeBook: (state, action) => {

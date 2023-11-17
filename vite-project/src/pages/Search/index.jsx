@@ -64,7 +64,7 @@ const Search = () => {
               return <FollowRow key={searchUser._id} follow={searchUser} />;
             })
           ) : (
-            <p>Comienza a buscar chefs</p>
+            <p>Find other chefs</p>
           )}
         </div>
       </div>

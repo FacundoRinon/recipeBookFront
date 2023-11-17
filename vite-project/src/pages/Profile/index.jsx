@@ -45,15 +45,15 @@ const Profile = () => {
               <div className="profile__follows">
                 <Link
                   className="link"
-                  to={`/follows/${user.id}?type=followers`}
-                >
-                  <p>{user.followers.length} followers</p>
-                </Link>
-                <Link
-                  className="link"
                   to={`/follows/${user.id}?type=following`}
                 >
                   <p>{user.following.length} following</p>
+                </Link>
+                <Link
+                  className="link"
+                  to={`/follows/${user.id}?type=followers`}
+                >
+                  <p>{user.followers.length} followers</p>
                 </Link>
               </div>
             </div>
