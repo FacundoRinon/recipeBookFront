@@ -74,7 +74,7 @@ const OtherProfile = () => {
               <div className="otherProfile__bottomRow">
                 {user.id !== otherUser._id && (
                   <div className="otherProfile__follow">
-                    {otherUser && user.following.includes(otherUser._id) ? (
+                    {otherUser && otherUser.followers.includes(user.id) ? (
                       <p
                         onClick={handleFollow}
                         className="otherProfile__followButton--unfollow"

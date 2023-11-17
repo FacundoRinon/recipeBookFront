@@ -39,7 +39,11 @@ const Follows = () => {
   useEffect(() => {
     setShow(type);
     getOtherProfile();
-  }, [user.following]);
+  }, []);
+
+  useEffect(() => {
+    getOtherProfile();
+  }, [show]);
 
   return (
     <>

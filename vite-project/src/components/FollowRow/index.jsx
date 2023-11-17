@@ -13,8 +13,8 @@ const FollowRow = ({ follow }) => {
   const [isFollowing, setIsFollowing] = useState(false);
 
   useEffect(() => {
-    setIsFollowing(follow.followers.includes(user.id));
-  }, [user.following, follow.followers]);
+    setIsFollowing(user.following.includes(follow._id));
+  }, [user]);
 
   async function handleFollow() {
     const url = follow._id;
@@ -26,7 +26,7 @@ const FollowRow = ({ follow }) => {
           Authorization: `Bearer ${user.token}`,
         },
       });
-      dispatch(toggleFollow({ user: user, follow: follow }));
+      dispatch(toggleFollow({ user: user, follow: follow._id }));
     } catch (error) {
       console.log(error);
     }
@@ -66,7 +66,7 @@ const FollowRow = ({ follow }) => {
           </div>
         </div>
         {follow._id !== user.id &&
-          (user.following.includes(follow._id) ? (
+          (isFollowing ? (
             <div onClick={handleFollow} className="followRow__button">
               <p>unfollow</p>
             </div>
