@@ -15,6 +15,7 @@ import "./index.scss";
 const RecipePage = () => {
   const user = useSelector((state) => state.user);
   const { id } = useParams();
+  console.log(id);
   const [recipe, setRecipe] = useState(null);
 
   const text = "Are you sure you want to delete this recipe?";
@@ -36,6 +37,7 @@ const RecipePage = () => {
           }
         );
         setRecipe(response.data);
+        console.log(response.data);
       } catch (error) {
         console.log("getRecipe - RecipePage", error);
       }

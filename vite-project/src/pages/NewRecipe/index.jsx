@@ -6,22 +6,12 @@ import axios from "axios";
 import Navbar from "../../components/Navbar";
 import { addRecipe } from "../../redux/recipesSlice";
 import { setToken } from "../../redux/userSlice";
+import categories from "../../assets/constants";
 
 import "./index.scss";
 
 const NewRecipe = () => {
   const user = useSelector((state) => state.user);
-
-  const categorys = [
-    "None",
-    "Burguer",
-    "Salad",
-    "Pizza",
-    "Chicken",
-    "Sushi",
-    "Rice",
-    "Other",
-  ];
 
   const [nameValue, setNameValue] = useState("");
   const [descriptionValue, setDescriptionValue] = useState("");
@@ -62,7 +52,6 @@ const NewRecipe = () => {
     formData.append("ingredients", JSON.stringify(ingredientsValue));
     formData.append("instructions", instructionsValue);
     formData.append("avatar", avatarValue);
-    // Cuando pase el avatar capaz tengo que usar esto y mandar todo como content-type
 
     const response = await axios({
       method: "POST",
@@ -114,9 +103,12 @@ const NewRecipe = () => {
             id=""
             className="newRecipe__select"
           >
-            {categorys.map((category) => {
+            {categories.map((category) => {
               return (
-                <option key={categorys.indexOf(category)} value={`${category}`}>
+                <option
+                  key={categories.indexOf(category)}
+                  value={`${category}`}
+                >
                   {category}
                 </option>
               );
