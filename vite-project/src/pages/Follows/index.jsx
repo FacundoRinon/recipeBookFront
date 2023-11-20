@@ -54,7 +54,7 @@ const Follows = () => {
             <p className="follows__userRowBack">
               <FontAwesomeIcon
                 onClick={() => navigate(-1)}
-                className="navBar__icon"
+                className="follows__icon"
                 icon={faUndo}
               />
             </p>
