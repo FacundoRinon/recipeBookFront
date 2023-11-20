@@ -30,6 +30,7 @@
 
   &__button {
     &--active {
+      cursor: pointer;
       padding: 0.5rem;
       color: $color-primary;
       background-color: white;
@@ -38,6 +39,7 @@
     }
 
     &--inactive {
+      cursor: pointer;
       padding: 0.5rem;
       color: $color-primary;
       background-color: black;
