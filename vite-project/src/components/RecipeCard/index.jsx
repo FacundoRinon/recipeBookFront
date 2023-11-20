@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { format } from "date-fns";
 import { enUS } from "date-fns/locale";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { toggleRecipeBook } from "../../redux/userSlice";
 
@@ -28,6 +30,27 @@ const RecipeCard = ({ recipe }) => {
         },
       });
       dispatch(toggleRecipeBook({ user: user, recipe: recipe }));
+      if (user.cookingBook.some((bookRecipe) => bookRecipe.id === recipe.id)) {
+        toast.error(
+          `${recipe.name} recipe from ${recipe.author.firstname} ${recipe.author.lastname} was removed from your book!`,
+          {
+            position: "top-center",
+            autoClose: 3000,
+            closeOnClick: true,
+            theme: "dark",
+          }
+        );
+      } else {
+        toast.success(
+          `${recipe.name} recipe from ${recipe.author.firstname} ${recipe.author.lastname} added to your book!`,
+          {
+            position: "top-center",
+            autoClose: 3000,
+            closeOnClick: true,
+            theme: "dark",
+          }
+        );
+      }
     } catch (error) {
       console.log("Error in addToBook - RecipeCard");
     }
@@ -36,6 +59,7 @@ const RecipeCard = ({ recipe }) => {
   return (
     <>
       <div className="recipeCard">
+        <ToastContainer />
         <div className="recipeCard__userRow">
           <div className="recipeCard__picSpace">
             <img

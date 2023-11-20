@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
-import "react-toastify/dist/ReactToastify.css";
 
 import Navbar from "../../components/Navbar";
 import { setToken } from "../../redux/userSlice";
@@ -66,12 +64,6 @@ const EditProfile = () => {
         username: response.data.username,
         avatar: response.data.avatar,
       };
-      toast.success(`Profile Updated`, {
-        position: "top-right",
-        autoClose: 3000,
-        closeOnClick: true,
-        theme: "dark",
-      });
       dispatch(setToken(updatedUser));
       navigate("/profile");
     }
@@ -165,7 +157,6 @@ const EditProfile = () => {
             </div>
           </form>
         </div>
-        <ToastContainer />
       </div>
     </>
   );
