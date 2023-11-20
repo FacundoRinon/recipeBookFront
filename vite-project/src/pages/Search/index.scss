@@ -47,7 +47,41 @@
     background-color: black;
   }
 
+  &__type {
+    width: 100%;
+    display: flex;
+    background-color: white;
+    border-bottom: 5px solid $color-primary;
+    justify-content: space-evenly;
+  }
+
+  &__typeButton {
+    margin: 1rem;
+    padding: 0.25rem;
+    background-color: white;
+    color: $color-primary;
+    border: 2px solid $color-primary;
+    border-radius: 5px;
+    &--active {
+      background-color: $color-primary;
+      color: white;
+    }
+  }
+
   &__results {
     width: 80%;
+  }
+
+  &__recipeResults {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  &__empty {
+    margin-top: 4rem;
+    color: $color-primary;
+    font-size: 3rem;
   }
 }
