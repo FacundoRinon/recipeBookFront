@@ -6,6 +6,7 @@ import axios from "axios";
 import FollowRow from "../../components/FollowRow";
 import RecipeCard from "../../components/RecipeCard";
 import Navbar from "../../components/Navbar";
+import Spinner from "../../components/Spinner";
 import categories from "../../assets/constants";
 
 import "./index.scss";
@@ -129,7 +130,9 @@ const Search = () => {
                 return <FollowRow key={searchUser._id} follow={searchUser} />;
               })
             ) : (
-              <p>Find other chefs</p>
+              <div className="search__spinner">
+                <Spinner />
+              </div>
             )}
           </div>
         ) : (
@@ -141,7 +144,9 @@ const Search = () => {
                 );
               })
             ) : (
-              <p className="search__empty">Look for new recipes</p>
+              <div className="search__spinner">
+                <Spinner />
+              </div>
             )}
           </div>
         )}
