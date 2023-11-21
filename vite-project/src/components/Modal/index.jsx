@@ -1,18 +1,74 @@
 import React from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+import Score from "../../components/Score";
 
 import "./index.scss";
 
-const Modal = ({ text, handle, onClose, isModalVisible }) => {
+const Modal = ({
+  text,
+  handle,
+  onClose,
+  isModalVisible,
+  child,
+  id,
+  setRecipe,
+}) => {
+  const user = useSelector((state) => state.user);
+  const [score, setScore] = useState(0);
+
+  const navigate = useNavigate();
+
+  const rateRecipe = async () => {
+    try {
+      const response = await axios({
+        method: "PATCH",
+        url: `${import.meta.env.VITE_API_URL}/recipes/score/${id}`,
+        data: {
+          userId: user.id,
+          score: score,
+        },
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
+      onClose();
+      setRecipe(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return isModalVisible ? (
     <div className="modal-container">
       <div className="modal">
         <p className="modal__text">{text}</p>
-        <button onClick={() => onClose()} className="modal__button--cancel">
-          Cancel
-        </button>
-        <button onClick={() => handle()} className="modal__button--delete">
-          Delete
-        </button>
+        {child && <Score setScore={setScore} />}
+        {!child ? (
+          <>
+            <button onClick={() => onClose()} className="modal__button--cancel">
+              Cancel
+            </button>
+            <button onClick={() => handle()} className="modal__button--delete">
+              Delete
+            </button>
+          </>
+        ) : (
+          <>
+            <button onClick={onClose} className="modal__button--cancel">
+              Cancel
+            </button>
+            <button
+              onClick={() => rateRecipe()}
+              className="modal__button--delete"
+            >
+              Set Score
+            </button>
+          </>
+        )}
       </div>
     </div>
   ) : null;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -6,6 +6,8 @@ import { format } from "date-fns";
 import { enUS } from "date-fns/locale";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
 
 import { toggleRecipeBook } from "../../redux/userSlice";
 
@@ -14,6 +16,7 @@ import "./index.scss";
 const RecipeCard = ({ recipe }) => {
   const user = useSelector((state) => state.user);
   const url = recipe.id;
+  const [score, setScore] = useState(0);
   const dispatch = useDispatch();
 
   const recipeExistsInCookingBook = user.cookingBook.some(
@@ -55,6 +58,23 @@ const RecipeCard = ({ recipe }) => {
       console.log("Error in addToBook - RecipeCard");
     }
   };
+
+  useEffect(() => {
+    const calculateAverageScore = () => {
+      if (recipe && recipe.score.length > 0) {
+        const totalScore = recipe.score.reduce(
+          (sum, score) => sum + score.score,
+          0
+        );
+        const avgScore = totalScore / recipe.score.length;
+        setScore(avgScore);
+      } else {
+        setScore(0);
+      }
+    };
+
+    calculateAverageScore();
+  }, []);
 
   return (
     <>
@@ -106,6 +126,11 @@ const RecipeCard = ({ recipe }) => {
               Add to cooking book
             </button>
           )}
+          <p>
+            {score} of 5{" "}
+            <FontAwesomeIcon className="recipeCard__icon" icon={solidStar} /> (
+            {recipe.score.length} votes)
+          </p>
         </div>
       </div>
     </>

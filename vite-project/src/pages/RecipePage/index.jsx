@@ -15,15 +15,31 @@ import "./index.scss";
 const RecipePage = () => {
   const user = useSelector((state) => state.user);
   const { id } = useParams();
-  console.log(id);
   const [recipe, setRecipe] = useState(null);
-
-  const text = "Are you sure you want to delete this recipe?";
+  const [averageScore, setAverageScore] = useState(0);
 
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isModal2Visible, setIsModal2Visible] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const calculateAverageScore = () => {
+      if (recipe && recipe.score.length > 0) {
+        const totalScore = recipe.score.reduce(
+          (sum, score) => sum + score.score,
+          0
+        );
+        const avgScore = totalScore / recipe.score.length;
+        setAverageScore(avgScore);
+      } else {
+        setAverageScore(0);
+      }
+    };
+
+    calculateAverageScore();
+  }, [recipe]);
 
   useEffect(() => {
     const getRecipe = async () => {
@@ -37,13 +53,12 @@ const RecipePage = () => {
           }
         );
         setRecipe(response.data);
-        console.log(response.data);
       } catch (error) {
         console.log("getRecipe - RecipePage", error);
       }
     };
     getRecipe();
-  }, []);
+  }, [recipe]);
 
   const handleDelete = async () => {
     try {
@@ -67,11 +82,20 @@ const RecipePage = () => {
       <div className="recipePage">
         <Navbar />
         <Modal
-          text={text}
+          text={"Are you sure you want to delete this recipe?"}
           recipe={recipe}
           handle={handleDelete}
           isModalVisible={isModalVisible}
           onClose={() => setIsModalVisible(false)}
+        />
+        <Modal
+          text={"Score this recipe"}
+          child={true}
+          recipe={recipe}
+          isModalVisible={isModal2Visible}
+          onClose={() => setIsModal2Visible(false)}
+          id={id}
+          setRecipe={setRecipe}
         />
         {recipe ? (
           <div className="recipePage__container">
@@ -128,6 +152,22 @@ const RecipePage = () => {
             <div className="recipePage__instructionsRow">
               <p>Instructions:</p>
               <small>{recipe.instructions}</small>
+            </div>
+            <div className="recipePage__buttons">
+              {recipe.score.length > 0 ? (
+                <p>
+                  Average Score: {averageScore.toFixed(2)} (
+                  {recipe.score.length} votes)
+                </p>
+              ) : (
+                <p>Score: 0 ({recipe.score.length} votes)</p>
+              )}
+              <button
+                onClick={() => setIsModal2Visible(true)}
+                className="recipePage__button--score"
+              >
+                Score
+              </button>
             </div>
             {user.id === recipe.author._id && (
               <div className="recipePage__buttons">

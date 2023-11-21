@@ -83,6 +83,18 @@
         transform: scale(1.05);
       }
     }
+    &--score {
+      cursor: pointer;
+      color: $color-primary;
+      background-color: white;
+      border: 2px solid $color-primary;
+      border-radius: 10px;
+      margin: 0.5rem;
+      transition: transform 0.5s;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
   }
 
   &__loader {
