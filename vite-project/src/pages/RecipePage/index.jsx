@@ -8,6 +8,7 @@ import { enUS } from "date-fns/locale";
 
 import Navbar from "../../components/Navbar";
 import Modal from "../../components/Modal";
+import Spinner from "../../components/Spinner";
 import { removeRecipe } from "../../redux/userSlice";
 
 import "./index.scss";
@@ -188,7 +189,9 @@ const RecipePage = () => {
             )}
           </div>
         ) : (
-          <h2 className="recipePage__loader">Loading</h2>
+          <div className="recipePage__spinner">
+            <Spinner />
+          </div>
         )}
       </div>
     </>
