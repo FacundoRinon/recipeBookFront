@@ -49,7 +49,6 @@ const EditProfile = () => {
       },
     });
     if (response.data === "ExistingUsername") {
-      console.log(response.data);
       toast.error(`Username already exist`, {
         position: "top-center",
         autoClose: 3000,

@@ -1,0 +1,15 @@
+@import "../../theme/variables.scss";
+
+.score {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+
+  &__icon {
+    color: $color-primary;
+    margin: 0.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+}

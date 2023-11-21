@@ -91,6 +91,15 @@
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    & p {
+      color: $color-primary;
+      margin: 0.5rem;
+      display: flex;
+      align-items: center;
+    }
   }
 
   &__button {
@@ -105,6 +114,11 @@
     &:hover {
       transform: scale(1.05);
     }
+  }
+
+  &__icon {
+    font-size: 1.25rem;
+    padding: 0.25rem;
   }
 }
 
