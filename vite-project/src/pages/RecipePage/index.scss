@@ -97,8 +97,12 @@
     }
   }
 
-  &__loader {
-    color: $color-primary;
+  &__spinner {
+    width: 100%;
+    height: 40rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 

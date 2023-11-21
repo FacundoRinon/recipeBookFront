@@ -79,9 +79,11 @@
     flex-wrap: wrap;
   }
 
-  &__empty {
-    margin-top: 4rem;
-    color: $color-primary;
-    font-size: 3rem;
+  &__spinner {
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

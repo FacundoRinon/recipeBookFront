@@ -6,6 +6,7 @@ import cn from "classnames";
 
 import Navbar from "../../components/Navbar";
 import RecipeCard from "../../components/RecipeCard";
+import Spinner from "../../components/Spinner";
 import { toggleFollow } from "../../redux/userSlice";
 
 import "./index.scss";
@@ -46,13 +47,19 @@ const OtherProfile = () => {
         });
         setOtherUser(response.data);
         setRenderRecipes(response.data.recipes);
-        setIsFollowing(user.following.includes(otherUser._id));
+        // setIsFollowing(user.following.includes(otherUser._id));
       } catch (error) {
         console.log(error);
       }
     }
     getOtherProfile();
-  }, [id, user.following, otherUser]);
+  }, [id, user.following]);
+
+  useEffect(() => {
+    if (otherUser) {
+      setIsFollowing(user.following.includes(otherUser._id));
+    }
+  }, [user.following, otherUser]);
 
   return (
     <>
@@ -145,7 +152,9 @@ const OtherProfile = () => {
           </div>
         </div>
       ) : (
-        <h1>Loading...</h1>
+        <div className="otherProfile__loader">
+          <Spinner />
+        </div>
       )}
     </>
   );
