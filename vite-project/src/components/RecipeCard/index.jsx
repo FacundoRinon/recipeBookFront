@@ -127,7 +127,7 @@ const RecipeCard = ({ recipe }) => {
             </button>
           )}
           <p>
-            {score} of 5{" "}
+            {score.toFixed(2)} of 5{" "}
             <FontAwesomeIcon className="recipeCard__icon" icon={solidStar} /> (
             {recipe.score.length} votes)
           </p>

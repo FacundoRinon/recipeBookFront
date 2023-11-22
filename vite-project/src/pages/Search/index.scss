@@ -11,7 +11,6 @@
     flex-wrap: wrap;
     background-color: black;
     border-bottom: 5px solid $color-primary;
-    justify-content: space-evenly;
     align-items: center;
   }
 
@@ -21,15 +20,22 @@
     text-align: center;
   }
 
+  &__imgSpace {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   &__userAvatar {
-    width: 10rem;
-    height: 10rem;
+    width: 9rem;
+    height: 9rem;
     border-radius: 50%;
     margin: 1rem;
     border: 3px solid $color-primary;
     @media (max-width: 576px) {
-      width: 10rem;
-      height: 10rem;
+      width: 3.5rem;
+      height: 3.5rem;
       border-radius: 50%;
       margin: 1rem;
       border: 3px solid $color-primary;
@@ -39,12 +45,35 @@
   &__searcher {
     margin: 1rem;
     padding: 0.5rem;
-    width: 75%;
+    width: 80%;
     height: 2rem;
     border: 3px solid $color-primary;
     border-radius: 10px;
     color: $color-primary;
     background-color: black;
+  }
+
+  &__inputs {
+    width: 65%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__label {
+    color: $color-primary;
+    width: 40%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__select {
+    width: 60%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: $color-primary;
+    background-color: black;
+    border: 3px solid $color-primary;
+    border-radius: 10px;
   }
 
   &__type {
