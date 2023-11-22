@@ -18,7 +18,10 @@ const Search = () => {
   const [searchedRecipes, setSearchedRecipes] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [searchType, setSearchType] = useState("users");
+
   const [categoryValue, setCategoryValue] = useState();
+  const [scoreValue, setScoreValue] = useState(0);
+  const [votesValue, setVotesValue] = useState(0);
 
   useEffect(() => {
     const getUsers = async () => {
@@ -52,7 +55,7 @@ const Search = () => {
           method: "GET",
           url: `${
             import.meta.env.VITE_API_URL
-          }/recipes/search/${categoryValue}`,
+          }/recipes/search/${categoryValue}/${scoreValue}/${votesValue}`,
           headers: {
             Authorization: `Bearer ${user.token}`,
           },
@@ -63,46 +66,91 @@ const Search = () => {
       }
     };
     getRecipes();
-  }, [categoryValue]);
+  }, [categoryValue, scoreValue, votesValue]);
 
   return (
     <>
       <Navbar />
       <div className="search">
         <div className="search__searcherRow">
-          <img
-            src={`${import.meta.env.VITE_IMG_URL}/${user.avatar}`}
-            alt=""
-            className="search__userAvatar"
-          />
-          {searchType === "users" ? (
-            <input
-              type="text"
-              className="search__searcher"
-              name="search"
-              placeholder="Find by name or username"
-              username={searchValue}
-              onChange={(event) => setSearchValue(event.target.value)}
+          <div className="search__imgSpace">
+            <img
+              src={`${import.meta.env.VITE_IMG_URL}/${user.avatar}`}
+              alt=""
+              className="search__userAvatar"
             />
+          </div>
+          {searchType === "users" ? (
+            <div className="search__inputs">
+              <input
+                type="text"
+                className="search__searcher"
+                name="search"
+                placeholder="Find by name or username"
+                username={searchValue}
+                onChange={(event) => setSearchValue(event.target.value)}
+              />
+            </div>
           ) : (
-            <select
-              name=""
-              value={categoryValue}
-              onChange={(event) => setCategoryValue(event.target.value)}
-              id=""
-              className="newRecipe__select"
-            >
-              {categories.map((category) => {
-                return (
-                  <option
-                    key={categories.indexOf(category)}
-                    value={`${category}`}
-                  >
-                    {category}
+            <div className="search__inputs">
+              <label htmlFor="" className="search__label">
+                Category:
+              </label>
+              <select
+                name="category"
+                value={categoryValue}
+                onChange={(event) => setCategoryValue(event.target.value)}
+                className="search__select"
+              >
+                {categories.map((category) => {
+                  return (
+                    <option
+                      key={categories.indexOf(category)}
+                      value={`${category}`}
+                    >
+                      {category}
+                    </option>
+                  );
+                })}
+              </select>
+              <label htmlFor="" className="search__label">
+                Score:
+              </label>
+              <select
+                name="score"
+                value={scoreValue}
+                onChange={(event) => setScoreValue(event.target.value)}
+                className="search__select"
+              >
+                {Array.from({ length: 5 }, (_, index) => (
+                  <option key={index + 1} value={index + 1}>
+                    {index + 1}
                   </option>
-                );
-              })}
-            </select>
+                ))}
+              </select>
+              <label htmlFor="" className="search__label">
+                Votes:
+              </label>
+              <select
+                name="votes"
+                value={votesValue}
+                onChange={(event) => setVotesValue(event.target.value)}
+                className="search__select"
+              >
+                <option key={1} value={0}>
+                  All
+                </option>
+                <option key={10} value={10}>
+                  +10 votes
+                </option>
+                <option key={100} value={100}>
+                  +100 votes
+                </option>
+                <option key={1000} value={1000}>
+                  +1000 votes
+                </option>
+              </select>
+            </div>
           )}
         </div>
         <div className="search__type">
