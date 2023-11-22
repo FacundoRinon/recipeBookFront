@@ -99,7 +99,7 @@ const EditProfile = () => {
           </div>
           <form className="editProfile__form" onSubmit={handleSubmit} action="">
             <div className="editProfile__formRow">
-              <label className="editProfile__formLabel" htmlFor="">
+              <label className="editProfile__formLabel" htmlFor="firstname">
                 Firstname:
               </label>
               <input
@@ -113,7 +113,7 @@ const EditProfile = () => {
               />
             </div>
             <div className="editProfile__formRow">
-              <label className="editProfile__formLabel" htmlFor="">
+              <label className="editProfile__formLabel" htmlFor="lastname">
                 Lastname:
               </label>
               <input
@@ -127,7 +127,7 @@ const EditProfile = () => {
               />
             </div>
             <div className="editProfile__formRow">
-              <label className="editProfile__formLabel" htmlFor="">
+              <label className="editProfile__formLabel" htmlFor="username">
                 Username:
               </label>
               <input
@@ -141,7 +141,7 @@ const EditProfile = () => {
               />
             </div>
             <div className="editProfile__formRow">
-              <label className="editProfile__formLabel" htmlFor="">
+              <label className="editProfile__formLabel" htmlFor="avatar">
                 Avatar:
               </label>
               <input

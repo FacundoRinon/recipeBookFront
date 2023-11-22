@@ -76,7 +76,7 @@ const NewRecipe = () => {
     formData.append("description", descriptionValue);
     formData.append("category", categoryValue);
     formData.append("ingredients", JSON.stringify(ingredientsValue));
-    formData.append("instructions", instructionsValue);
+    formData.append("instructions", JSON.stringify(instructionsValue));
     formData.append("avatar", avatarValue);
 
     const response = await axios({
@@ -107,7 +107,7 @@ const NewRecipe = () => {
           action="/recipes/"
           onSubmit={handleSubmit}
         >
-          <label htmlFor="" className="newRecipe__label">
+          <label htmlFor="name" className="newRecipe__label">
             Name of the recipe
           </label>
           <input
@@ -119,14 +119,14 @@ const NewRecipe = () => {
             value={nameValue}
             onChange={(event) => setNameValue(event.target.value)}
           />
-          <label htmlFor="" className="newRecipe__label">
+          <label htmlFor="category" className="newRecipe__label">
             Select a category for your recipe
           </label>
           <select
             name=""
             value={categoryValue}
             onChange={(event) => setCategoryValue(event.target.value)}
-            id=""
+            id="category"
             className="newRecipe__select"
           >
             {categories.map((category) => {
@@ -140,10 +140,11 @@ const NewRecipe = () => {
               );
             })}
           </select>
-          <label htmlFor="" className="newRecipe__label">
+          <label htmlFor="description" className="newRecipe__label">
             Write a small description of the recipe
           </label>
           <textarea
+            id="description"
             type="text"
             className="newRecipe__textarea"
             name="description"
@@ -151,10 +152,11 @@ const NewRecipe = () => {
             value={descriptionValue}
             onChange={(event) => setDescriptionValue(event.target.value)}
           />
-          <label htmlFor="" className="newRecipe__label">
+          <label htmlFor="ingredient" className="newRecipe__label">
             Define your ingredients and their quantities
           </label>
           <input
+            id="ingredient"
             type="text"
             className="newRecipe__ingredient"
             name="ingredient"
@@ -170,28 +172,30 @@ const NewRecipe = () => {
             value={ingredientQuantity}
             onChange={(event) => setIngredientQuantity(event.target.value)}
           />
-          <p className="newRecipe__button">
-            Add <FontAwesomeIcon onClick={handleAddIngredient} icon={faAdd} />
+          <p className="newRecipe__button" onClick={handleAddIngredient}>
+            Add <FontAwesomeIcon icon={faAdd} />
           </p>
-          <label htmlFor="" className="newRecipe__label">
+          <label htmlFor="instructions" className="newRecipe__label">
             Now describe how to prepare the recipe
           </label>
           <textarea
+            id="instructions"
             type="text"
             className="newRecipe__textarea"
             name="intructions"
             placeholder="instructions"
-            rows={4}
+            rows={1}
             value={stepValue}
             onChange={(event) => setStepValue(event.target.value)}
           ></textarea>
           <p className="newRecipe__button" onClick={() => handleAddStep()}>
-            New step
+            New step <FontAwesomeIcon icon={faAdd} />
           </p>
-          <label htmlFor="" className="newRecipe__label">
+          <label htmlFor="avatar" className="newRecipe__label">
             Take a picture of your results
           </label>
           <input
+            id="avatar"
             type="file"
             className="newRecipe__file"
             name="avatar"

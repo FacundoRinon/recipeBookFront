@@ -59,7 +59,7 @@ const RecipePage = () => {
       }
     };
     getRecipe();
-  }, [recipe]);
+  }, []);
 
   const handleDelete = async () => {
     try {
@@ -152,7 +152,14 @@ const RecipePage = () => {
             </div>
             <div className="recipePage__instructionsRow">
               <p>Instructions:</p>
-              <small>{recipe.instructions}</small>
+              {recipe.instructions.map((instruction, index) => {
+                return (
+                  <div key={index} className="recipePage__step">
+                    <h4>Step {index + 1}</h4>
+                    <p>{instruction}</p>
+                  </div>
+                );
+              })}
             </div>
             <div className="recipePage__buttons">
               {recipe.score.length > 0 ? (
