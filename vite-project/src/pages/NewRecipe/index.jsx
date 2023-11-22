@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAdd, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import Navbar from "../../components/Navbar";
 import { addRecipe } from "../../redux/recipesSlice";
@@ -32,6 +34,12 @@ const NewRecipe = () => {
       setIngredientName("");
       setIngredientQuantity("");
     }
+  };
+
+  const handleDeleteIngredient = (index) => {
+    const newIngredients = [...ingredientsValue];
+    newIngredients.splice(index, 1);
+    setIngredientsValue(newIngredients);
   };
 
   const handleAvatar = (event) => {
@@ -144,13 +152,9 @@ const NewRecipe = () => {
             value={ingredientQuantity}
             onChange={(event) => setIngredientQuantity(event.target.value)}
           />
-          <button
-            type="button"
-            className="newRecipe__button"
-            onClick={handleAddIngredient}
-          >
-            Add Ingredient
-          </button>
+          <p className="newRecipe__button">
+            Add <FontAwesomeIcon onClick={handleAddIngredient} icon={faAdd} />
+          </p>
           <label htmlFor="" className="newRecipe__label">
             Now describe how to prepare
           </label>
@@ -207,6 +211,7 @@ const NewRecipe = () => {
                   <tr>
                     <th className="preview__header">Name</th>
                     <th className="preview__header">Quantity</th>
+                    <th className="preview__header">Delete</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -215,12 +220,22 @@ const NewRecipe = () => {
                       <tr key={index}>
                         <td className="preview__data">{ingredient.name}</td>
                         <td className="preview__data">{ingredient.quantity}</td>
+                        <td
+                          className="preview__data"
+                          onClick={() => handleDeleteIngredient(index)}
+                        >
+                          <FontAwesomeIcon
+                            className="preview__icon"
+                            icon={faTrash}
+                          />
+                        </td>
                       </tr>
                     ))
                   ) : (
                     <tr key="none">
                       <td className="preview__data">none</td>
                       <td className="preview__data">none</td>
+                      <td className="preview__data"></td>
                     </tr>
                   )}
                 </tbody>
