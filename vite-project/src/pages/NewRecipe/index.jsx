@@ -21,7 +21,8 @@ const NewRecipe = () => {
   const [ingredientName, setIngredientName] = useState("");
   const [ingredientQuantity, setIngredientQuantity] = useState("");
   const [ingredientsValue, setIngredientsValue] = useState([]);
-  const [instructionsValue, setInstructionsValue] = useState("");
+  const [stepValue, setStepValue] = useState("");
+  const [instructionsValue, setInstructionsValue] = useState([]);
   const [avatarValue, setAvatarValue] = useState(null);
 
   const handleAddIngredient = () => {
@@ -40,6 +41,23 @@ const NewRecipe = () => {
     const newIngredients = [...ingredientsValue];
     newIngredients.splice(index, 1);
     setIngredientsValue(newIngredients);
+  };
+
+  const handleAddStep = () => {
+    if (instructionsValue) {
+      setInstructionsValue((prevInstructions) => [
+        ...prevInstructions,
+        stepValue,
+      ]);
+      setStepValue("");
+      console.log(instructionsValue);
+    }
+  };
+
+  const handleDeleteStep = (index) => {
+    const newInstructions = [...instructionsValue];
+    newInstructions.splice(index, 1);
+    setInstructionsValue(newInstructions);
   };
 
   const handleAvatar = (event) => {
@@ -156,17 +174,20 @@ const NewRecipe = () => {
             Add <FontAwesomeIcon onClick={handleAddIngredient} icon={faAdd} />
           </p>
           <label htmlFor="" className="newRecipe__label">
-            Now describe how to prepare
+            Now describe how to prepare the recipe
           </label>
           <textarea
             type="text"
             className="newRecipe__textarea"
             name="intructions"
             placeholder="instructions"
-            rows={20}
-            value={instructionsValue}
-            onChange={(event) => setInstructionsValue(event.target.value)}
+            rows={4}
+            value={stepValue}
+            onChange={(event) => setStepValue(event.target.value)}
           ></textarea>
+          <p className="newRecipe__button" onClick={() => handleAddStep()}>
+            New step
+          </p>
           <label htmlFor="" className="newRecipe__label">
             Take a picture of your results
           </label>
@@ -244,7 +265,21 @@ const NewRecipe = () => {
             <div className="preview__preparation">
               <h4>Preparation:</h4>
               {instructionsValue ? (
-                <p>{instructionsValue}</p>
+                instructionsValue.map((step, index) => {
+                  return (
+                    <div key={index} className="preview__step">
+                      <h4>
+                        <FontAwesomeIcon
+                          className="preview__icon"
+                          onClick={() => handleDeleteStep()}
+                          icon={faTrash}
+                        />{" "}
+                        Step {index + 1}:
+                      </h4>
+                      <p>{step}</p>
+                    </div>
+                  );
+                })
               ) : (
                 <p>Provide a step-by-step guide for preparing your recipe.</p>
               )}
