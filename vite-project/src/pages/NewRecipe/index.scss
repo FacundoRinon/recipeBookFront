@@ -5,10 +5,8 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin-top: 4rem;
-}
 
-@media (max-width: 576px) {
-  .newRecipe__form {
+  &__form {
     width: 85%;
     border: 3px solid $color-primary;
     background-color: black;
@@ -20,195 +18,178 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    @media (min-width: 950px) {
+      width: 45%;
+    }
   }
 
-  .newRecipe__preview {
+  &__preview {
     width: 85%;
     border: 3px solid $color-primary;
     background-color: white;
     border-radius: 10px;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    @media (min-width: 950px) {
+      width: 45%;
+    }
   }
-}
 
-@media (min-width: 577px) {
-  .newRecipe__form {
-    width: 45%;
-    border: 3px solid $color-primary;
-    background-color: black;
-    border-radius: 10px;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+  &__label {
+    color: $color-primary;
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
   }
 
-  .newRecipe__preview {
-    width: 45%;
+  &__input {
+    color: $color-primary;
+    background-color: black;
     border: 3px solid $color-primary;
-    background-color: white;
     border-radius: 10px;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    width: 80%;
+    margin: 0.5rem;
+    padding: 0.25rem;
+  }
+
+  &__select {
+    background-color: black;
+    color: $color-primary;
+    border: 3px solid $color-primary;
+    border-radius: 10px;
+    margin: 0.5rem;
+    padding: 0.25rem;
+    width: 80%;
+  }
+
+  &__ingredient {
+    color: $color-primary;
+    background-color: black;
+    border: 3px solid $color-primary;
+    border-radius: 10px;
+    margin: 1rem;
+    padding: 0.5rem;
+    width: 25%;
+  }
+
+  &__button {
+    color: $color-primary;
+    font-size: 1.5rem;
+    background-color: white;
+    border: 3px solid $color-primary;
+    border-radius: 10px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.5s;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__textarea {
+    background-color: black;
+    border: 3px solid $color-primary;
+    border-radius: 10px;
+    width: 80%;
+    padding: 0.25rem;
+    margin: 0.5rem;
+    color: $color-primary;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  &__file {
+    border: 3px solid $color-primary;
+    border-radius: 10px;
+    width: 80%;
+    padding: 0.25rem;
+    margin: 0.5rem;
+    color: $color-primary;
+  }
+
+  &__submitButton {
+    width: 25%;
+    font-size: 80%;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border: 3px solid $color-primary;
+    border-radius: 10px;
+    background-color: white;
+    color: $color-primary;
+    cursor: pointer;
+    transition: transform 0.5s;
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 }
 
-.newRecipe__label {
-  color: $color-primary;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.newRecipe__input {
-  color: $color-primary;
-  background-color: black;
-  border: 3px solid $color-primary;
-  border-radius: 10px;
-  width: 80%;
-  margin: 0.5rem;
-  padding: 0.25rem;
-}
-
-.newRecipe__select {
-  background-color: black;
-  color: $color-primary;
-  border: 3px solid $color-primary;
-  border-radius: 10px;
-  margin: 0.5rem;
-  padding: 0.25rem;
-  width: 80%;
-}
-
-.newRecipe__ingredient {
-  color: $color-primary;
-  background-color: black;
-  border: 3px solid $color-primary;
-  border-radius: 10px;
-  margin: 1rem;
-  padding: 0.5rem;
-  width: 25%;
-}
-
-.newRecipe__button {
-  color: $color-primary;
-  font-size: 1.5rem;
-  background-color: white;
-  border: 3px solid $color-primary;
-  border-radius: 10px;
-  padding: 0.5rem;
-  cursor: pointer;
-  transition: transform 0.5s;
-  &:hover {
-    transform: scale(1.05);
+.preview {
+  &__title {
+    padding-left: 1.5rem;
   }
-}
 
-.newRecipe__textarea {
-  background-color: black;
-  border: 3px solid $color-primary;
-  border-radius: 10px;
-  width: 80%;
-  padding: 0.25rem;
-  margin: 0.5rem;
-  color: $color-primary;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.newRecipe__file {
-  border: 3px solid $color-primary;
-  border-radius: 10px;
-  width: 80%;
-  padding: 0.25rem;
-  margin: 0.5rem;
-  color: $color-primary;
-}
-
-.newRecipe__submitButton {
-  width: 25%;
-  font-size: 80%;
-  margin-top: 1rem;
-  padding: 0.5rem;
-  border: 3px solid $color-primary;
-  border-radius: 10px;
-  background-color: white;
-  color: $color-primary;
-  cursor: pointer;
-  transition: transform 0.5s;
-  &:hover {
-    transform: scale(1.05);
+  &__descriptionRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0.5rem;
   }
-}
 
-.preview__title {
-  padding-left: 1.5rem;
-}
+  &__imgSpace {
+    width: 50%;
+  }
 
-.preview__descriptionRow {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin: 0.5rem;
-}
+  &__pic {
+    height: 18rem;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
 
-.preview__imgSpace {
-  width: 50%;
-}
+  &__catDes {
+    width: 40%;
+    overflow-wrap: break-word;
+  }
 
-.preview__pic {
-  height: 18rem;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-}
+  &__ingredients {
+    width: 100%;
+    overflow-wrap: break-word;
+    text-align: justify;
+  }
 
-.preview__catDes {
-  width: 40%;
-  overflow-wrap: break-word;
-}
+  &__preparation {
+    width: 100%;
+    overflow-wrap: break-word;
+    text-align: justify;
+  }
 
-.preview__ingredients {
-  width: 100%;
-  overflow-wrap: break-word;
-  text-align: justify;
-}
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+  }
 
-.preview__preparation {
-  width: 100%;
-  overflow-wrap: break-word;
-  text-align: justify;
-}
+  &__header {
+    border: 1px solid $color-primary;
+    text-align: center;
+    padding: 0.5rem;
+  }
 
-.preview__table {
-  width: 100%;
-  border-collapse: collapse;
-}
+  &__data {
+    border: 1px solid $color-primary;
+    text-align: center;
+    padding: 0.25rem;
+  }
 
-.preview__header {
-  border: 1px solid $color-primary;
-  text-align: center;
-  padding: 0.5rem;
-}
-
-.preview__data {
-  border: 1px solid $color-primary;
-  text-align: center;
-  padding: 0.25rem;
-}
-
-.preview__icon {
-  margin: 0;
-  padding: 0.5rem;
-  border-radius: 10px;
-  background-color: $color-primary;
-  color: white;
-  cursor: pointer;
-  transition: transform 0.5s;
-  &:hover {
-    transform: scale(1.05);
+  &__icon {
+    margin: 0;
+    padding: 0.5rem;
+    border-radius: 10px;
+    background-color: $color-primary;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.5s;
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 }
