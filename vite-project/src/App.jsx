@@ -1,5 +1,6 @@
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
+
+import "./App.css";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
