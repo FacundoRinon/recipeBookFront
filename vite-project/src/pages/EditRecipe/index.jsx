@@ -1,10 +1,15 @@
 import React, { useEffect } from "react";
-import "./index.scss";
-import Navbar from "../../components/Navbar";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAdd, faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+
+import Navbar from "../../components/Navbar";
+import categories from "../../assets/constants";
+
+import "./index.scss";
 
 const EditRecipe = () => {
   const user = useSelector((state) => state.user);
@@ -12,24 +17,14 @@ const EditRecipe = () => {
 
   const [recipe, setRecipe] = useState(null);
 
-  const categorys = [
-    "None",
-    "Burguer",
-    "Salad",
-    "Pizza",
-    "Chicken",
-    "Sushi",
-    "Rice",
-    "Other",
-  ];
-
   const [nameValue, setNameValue] = useState("");
   const [descriptionValue, setDescriptionValue] = useState("");
   const [categoryValue, setCategoryValue] = useState("none");
   const [ingredientName, setIngredientName] = useState("");
   const [ingredientQuantity, setIngredientQuantity] = useState("");
   const [ingredientsValue, setIngredientsValue] = useState([]);
-  const [instructionsValue, setInstructionsValue] = useState("");
+  const [stepValue, setStepValue] = useState("");
+  const [instructionsValue, setInstructionsValue] = useState([]);
   const [avatarValue, setAvatarValue] = useState(null);
 
   useEffect(() => {
@@ -73,12 +68,33 @@ const EditRecipe = () => {
     }
   };
 
+  const handleDeleteIngredient = (index) => {
+    const newIngredients = [...ingredientsValue];
+    newIngredients.splice(index, 1);
+    setIngredientsValue(newIngredients);
+  };
+
+  const handleAddStep = () => {
+    if (instructionsValue) {
+      setInstructionsValue((prevInstructions) => [
+        ...prevInstructions,
+        stepValue,
+      ]);
+      setStepValue("");
+    }
+  };
+
+  const handleDeleteStep = (index) => {
+    const newInstructions = [...instructionsValue];
+    newInstructions.splice(index, 1);
+    setInstructionsValue(newInstructions);
+  };
+
   const handleAvatar = (event) => {
     const image = event.target.files[0];
     setAvatarValue(image);
   };
 
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   async function handleSubmit(event) {
@@ -89,9 +105,7 @@ const EditRecipe = () => {
     formData.append("description", descriptionValue);
     formData.append("category", categoryValue);
     formData.append("ingredients", JSON.stringify(ingredientsValue));
-    formData.append("instructions", instructionsValue);
-    formData.append("avatar", avatarValue);
-    // Cuando pase el avatar capaz tengo que usar esto y mandar todo como content-type
+    formData.append("instructions", JSON.stringify(instructionsValue));
 
     const response = await axios({
       method: "PATCH",
@@ -102,7 +116,7 @@ const EditRecipe = () => {
         "Content-Type": "multipart/form-data",
       },
     });
-    navigate("/");
+    navigate(`/recipe/${id}`);
   }
 
   return (
@@ -138,12 +152,9 @@ const EditRecipe = () => {
               id="category"
               className="newRecipe__select"
             >
-              {categorys.map((category) => {
+              {categories.map((category, index) => {
                 return (
-                  <option
-                    key={categorys.indexOf(category)}
-                    value={`${category}`}
-                  >
+                  <option key={index} value={`${category}`}>
                     {category}
                   </option>
                 );
@@ -181,13 +192,9 @@ const EditRecipe = () => {
               value={ingredientQuantity}
               onChange={(event) => setIngredientQuantity(event.target.value)}
             />
-            <button
-              type="button"
-              className="newRecipe__button"
-              onClick={handleAddIngredient}
-            >
-              Add Ingredient
-            </button>
+            <p className="newRecipe__button" onClick={handleAddIngredient}>
+              Add <FontAwesomeIcon icon={faAdd} />
+            </p>
             <label htmlFor="instructions" className="newRecipe__label">
               Now describe how to prepare
             </label>
@@ -197,21 +204,16 @@ const EditRecipe = () => {
               className="newRecipe__textarea"
               name="intructions"
               placeholder="instructions"
-              rows={20}
-              value={instructionsValue}
-              onChange={(event) => setInstructionsValue(event.target.value)}
+              rows={1}
+              value={stepValue}
+              onChange={(event) => setStepValue(event.target.value)}
             ></textarea>
+            <p className="newRecipe__button" onClick={() => handleAddStep()}>
+              New step <FontAwesomeIcon icon={faAdd} />
+            </p>
             <label htmlFor="avatar" className="newRecipe__label">
               Take a picture of your results
             </label>
-            <input
-              id="avatar"
-              type="file"
-              className="newRecipe__file"
-              name="avatar"
-              placeholder="avatar"
-              onChange={handleAvatar}
-            />
             <button className="newRecipe__submitButton" type="submit">
               Save changes
             </button>
@@ -240,6 +242,7 @@ const EditRecipe = () => {
                     <tr>
                       <th className="preview__header">Name</th>
                       <th className="preview__header">Quantity</th>
+                      <th className="preview__header">Delete</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -247,6 +250,15 @@ const EditRecipe = () => {
                       <tr key={index}>
                         <td className="preview__data">{ingredient.name}</td>
                         <td className="preview__data">{ingredient.quantity}</td>
+                        <td
+                          className="preview__data"
+                          onClick={() => handleDeleteIngredient(index)}
+                        >
+                          <FontAwesomeIcon
+                            className="preview__icon"
+                            icon={faTrash}
+                          />
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -254,7 +266,25 @@ const EditRecipe = () => {
               </div>
               <div className="preview__preparation">
                 <h4>Preparation:</h4>
-                <p>{instructionsValue}</p>
+                {instructionsValue ? (
+                  instructionsValue.map((step, index) => {
+                    return (
+                      <div key={index} className="preview__step">
+                        <h4>
+                          <FontAwesomeIcon
+                            className="preview__icon"
+                            onClick={() => handleDeleteStep()}
+                            icon={faTrash}
+                          />{" "}
+                          Step {index + 1}:
+                        </h4>
+                        <p>{step}</p>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <p>Provide a step-by-step guide for preparing your recipe.</p>
+                )}
               </div>
             </div>
           </div>

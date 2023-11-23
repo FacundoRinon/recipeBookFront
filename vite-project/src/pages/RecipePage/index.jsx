@@ -179,13 +179,12 @@ const RecipePage = () => {
             </div>
             {user.id === recipe.author._id && (
               <div className="recipePage__buttons">
-                {/* <button
+                <button
                   onClick={() => navigate(`/recipe/edit/${recipe.id}`)}
                   className="recipePage__button--edit"
                 >
                   Edit recipe
-                </button> */}
-                {/* ME FALTA ARREGLAR EL EDIT DE LAS RECETAS */}
+                </button>
                 <button
                   onClick={() => setIsModalVisible(true)}
                   className="recipePage__button--delete"
