@@ -3,7 +3,6 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setRecipes } from "../../redux/recipesSlice";
 
-import Navbar from "../../components/Navbar";
 import Feed from "../../components/Feed";
 
 import "./index.scss";
@@ -41,7 +40,6 @@ function Home() {
   return (
     <>
       <div className="home">
-        <Navbar />
         <Feed />
       </div>
     </>

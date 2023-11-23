@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAdd, faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
-import Navbar from "../../components/Navbar";
 import { addRecipe } from "../../redux/recipesSlice";
 import { setToken } from "../../redux/userSlice";
 import categories from "../../assets/constants";
@@ -99,7 +98,6 @@ const NewRecipe = () => {
 
   return (
     <>
-      <Navbar />
       <div className="newRecipe">
         <form
           className="newRecipe__form"

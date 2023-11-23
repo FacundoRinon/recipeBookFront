@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import { format } from "date-fns";
 import { enUS } from "date-fns/locale";
 
-import Navbar from "../../components/Navbar";
 import Modal from "../../components/Modal";
 import Spinner from "../../components/Spinner";
 import { removeRecipe } from "../../redux/userSlice";
@@ -81,7 +80,6 @@ const RecipePage = () => {
   return (
     <>
       <div className="recipePage">
-        <Navbar />
         <Modal
           text={"Are you sure you want to delete this recipe?"}
           recipe={recipe}
