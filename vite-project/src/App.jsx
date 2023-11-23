@@ -15,7 +15,7 @@ import OtherProfile from "./pages/OtherProfile";
 import EditProfile from "./pages/EditProfile";
 import Follows from "./pages/Follows";
 import EditRecipe from "./pages/EditRecipe";
-import Navbar from "./components/Navbar";
+import AboutProyect from "./pages/AboutProyect";
 
 function App() {
   return (
@@ -23,7 +23,6 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
@@ -35,6 +34,7 @@ function App() {
             <Route path="/editProfile" element={<EditProfile />} />
             <Route path="/follows/:id" element={<Follows />} />
             <Route path="/recipe/edit/:id" element={<EditRecipe />} />
+            <Route path="/aboutProyect" element={<AboutProyect />} />
           </Route>
         </Route>
       </Routes>

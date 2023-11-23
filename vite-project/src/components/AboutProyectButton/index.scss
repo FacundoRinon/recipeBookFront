@@ -1,0 +1,29 @@
+@import "../../theme/variables.scss";
+
+.proyectButton {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  & small {
+    background-color: $color-primary;
+    position: fixed;
+    color: white;
+    top: 87vh;
+    border-radius: 50%;
+    border: 2px solid white;
+    padding: 1rem;
+    width: 2rem;
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.5s;
+    &:hover {
+      transform: scale(1.1);
+    }
+    @media (min-width: 576px) {
+      top: 84vh;
+      margin: 2rem;
+    }
+  }
+}
