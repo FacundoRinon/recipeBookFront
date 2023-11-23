@@ -5,7 +5,6 @@ import axios from "axios";
 
 import FollowRow from "../../components/FollowRow";
 import RecipeCard from "../../components/RecipeCard";
-import Navbar from "../../components/Navbar";
 import Spinner from "../../components/Spinner";
 import categories from "../../assets/constants";
 
@@ -70,7 +69,6 @@ const Search = () => {
 
   return (
     <>
-      <Navbar />
       <div className="search">
         <div className="search__searcherRow">
           <div className="search__imgSpace">

@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAdd, faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
-import Navbar from "../../components/Navbar";
 import categories from "../../assets/constants";
 
 import "./index.scss";
@@ -121,7 +120,6 @@ const EditRecipe = () => {
 
   return (
     <>
-      <Navbar />
       {recipe !== null ? (
         <div className="newRecipe">
           <form

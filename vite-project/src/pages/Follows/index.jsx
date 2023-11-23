@@ -47,7 +47,7 @@ const Follows = () => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       {profile && (
         <div className="follows">
           <div className="follows__userRow">

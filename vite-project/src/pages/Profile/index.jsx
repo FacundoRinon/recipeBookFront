@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import cn from "classnames";
 
-import Navbar from "../../components/Navbar";
 import RecipeCard from "../../components/RecipeCard";
 
 import "./index.scss";
@@ -16,7 +15,6 @@ const Profile = () => {
   return (
     <>
       <div className="profile">
-        <Navbar />
         <div className="profile__userRow">
           <div className="profile__avatar">
             <img

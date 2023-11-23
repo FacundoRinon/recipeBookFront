@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import cn from "classnames";
 
-import Navbar from "../../components/Navbar";
 import RecipeCard from "../../components/RecipeCard";
 import Spinner from "../../components/Spinner";
 import { toggleFollow } from "../../redux/userSlice";
@@ -65,7 +64,6 @@ const OtherProfile = () => {
     <>
       {otherUser ? (
         <div className="otherProfile">
-          <Navbar />
           <div className="otherProfile__userRow">
             <div className="otherProfile__avatar">
               <img

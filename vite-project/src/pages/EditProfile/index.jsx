@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-import Navbar from "../../components/Navbar";
 import { setToken } from "../../redux/userSlice";
 
 import "./index.scss";
@@ -70,7 +69,6 @@ const EditProfile = () => {
 
   return (
     <>
-      <Navbar />
       <div className="editProfile">
         <div className="editProfile__container">
           <div className="editProfile__userRow">
