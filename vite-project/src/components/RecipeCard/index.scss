@@ -3,8 +3,8 @@
 .recipeCard {
   width: 90%;
   margin-top: 1rem;
-  border: 2px solid $color-primary;
-  border-radius: 10px;
+  border: 4px solid $color-primary;
+  border-radius: 15px;
   margin-bottom: 2rem;
   background-color: white;
   transition: transform 0.5s;
@@ -13,10 +13,6 @@
   }
   @media (min-width: 1000px) {
     width: 45%;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-    border-radius: 10px;
-    background-color: white;
   }
   &__userRow {
     display: flex;
@@ -49,6 +45,9 @@
   }
   &__userData {
     color: $color-primary;
+    & p {
+      padding: 0.3rem;
+    }
   }
 
   &__contentRow {
