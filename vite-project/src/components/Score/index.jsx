@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
 import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
@@ -48,6 +49,10 @@ const Score = ({ setScore }) => {
       </div>
     </>
   );
+};
+
+Score.propTypes = {
+  setScore: PropTypes.func,
 };
 
 export default Score;

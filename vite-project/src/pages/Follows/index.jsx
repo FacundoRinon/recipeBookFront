@@ -4,11 +4,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import queryString from "query-string";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUndo } from "@fortawesome/free-solid-svg-icons";
 
-import Navbar from "../../components/Navbar";
 import FollowRow from "../../components/FollowRow";
 
 import "./index.scss";
@@ -47,7 +45,6 @@ const Follows = () => {
 
   return (
     <>
-      {/* <Navbar /> */}
       {profile && (
         <div className="follows">
           <div className="follows__userRow">

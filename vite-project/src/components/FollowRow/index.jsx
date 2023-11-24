@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import axios from "axios";
 
 import { toggleFollow } from "../../redux/userSlice";
@@ -78,6 +79,10 @@ const FollowRow = ({ follow }) => {
       </div>
     </>
   );
+};
+
+FollowRow.propTypes = {
+  follow: PropTypes.object.isRequired,
 };
 
 export default FollowRow;
