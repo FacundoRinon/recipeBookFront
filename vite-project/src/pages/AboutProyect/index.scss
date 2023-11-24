@@ -1,0 +1,128 @@
+@import "../../theme/variables.scss";
+
+.aboutProyect {
+  margin-top: 3rem;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & h2 {
+    color: $color-primary;
+  }
+
+  &__container {
+    width: 90%;
+  }
+
+  &__header {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    & h1 {
+      font-size: 3rem;
+      color: $color-primary;
+    }
+    & p {
+      text-align: justify;
+      width: 80%;
+      line-height: 1.5;
+      @media (max-width: 770px) {
+        width: 100%;
+      }
+    }
+  }
+
+  &__duration {
+    margin-bottom: 3rem;
+    & h2 {
+      color: $color-primary;
+    }
+    & p {
+      width: 60%;
+      text-align: justify;
+      line-height: 1.5;
+      @media (max-width: 770px) {
+        width: 100%;
+      }
+    }
+  }
+
+  &__aboutMe {
+    display: flex;
+    @media (max-width: 770px) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  &__description {
+    width: 70%;
+    @media (max-width: 770px) {
+      width: 100%;
+    }
+    & p {
+      text-align: justify;
+      line-height: 1.5;
+    }
+    & h2 {
+      color: $color-primary;
+      margin-top: 2rem;
+    }
+  }
+
+  &__techRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  &__tech {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    @media (min-width: 1000px) {
+      width: 25%;
+    }
+    & p {
+      color: $color-primary;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+
+  &__card {
+    height: 35rem;
+    margin: 2rem;
+    border: 4px solid $color-primary;
+    border-radius: 10px;
+    width: 20rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    color: $color-primary;
+    & img {
+      margin: 1rem;
+      object-fit: cover;
+      height: 15rem;
+      width: 15rem;
+      border-radius: 50%;
+      border: 4px solid $color-primary;
+    }
+  }
+
+  &__icon {
+    font-size: 2rem;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: transform 0.5s;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.no-link {
+  color: $color-primary;
+}
