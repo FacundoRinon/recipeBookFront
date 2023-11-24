@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import PropTypes from "prop-types";
 import { format } from "date-fns";
 import { enUS } from "date-fns/locale";
 import { ToastContainer, toast } from "react-toastify";
@@ -135,6 +136,10 @@ const RecipeCard = ({ recipe }) => {
       </div>
     </>
   );
+};
+
+RecipeCard.propTypes = {
+  recipe: PropTypes.object.isRequired,
 };
 
 export default RecipeCard;

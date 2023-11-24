@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import Score from "../../components/Score";
 
@@ -19,8 +19,6 @@ const Modal = ({
 }) => {
   const user = useSelector((state) => state.user);
   const [score, setScore] = useState(0);
-
-  const navigate = useNavigate();
 
   const rateRecipe = async () => {
     try {
@@ -72,6 +70,16 @@ const Modal = ({
       </div>
     </div>
   ) : null;
+};
+
+Modal.propTypes = {
+  text: PropTypes.string,
+  handle: PropTypes.func,
+  onClose: PropTypes.func,
+  isModalVisible: PropTypes.bool.isRequired,
+  child: PropTypes.bool,
+  id: PropTypes.string,
+  setRecipe: PropTypes.func,
 };
 
 export default Modal;

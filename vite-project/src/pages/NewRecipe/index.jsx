@@ -49,7 +49,6 @@ const NewRecipe = () => {
         stepValue,
       ]);
       setStepValue("");
-      console.log(instructionsValue);
     }
   };
 
