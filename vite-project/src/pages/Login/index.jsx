@@ -52,10 +52,17 @@ const Login = () => {
                 value={passwordValue}
                 onChange={(event) => setPasswordValue(event.target.value)}
               />
-
-              <button type="submit" className="login__button">
-                Login
-              </button>
+              <div className="login__submitRow">
+                <button type="submit" className="login__button">
+                  Login
+                </button>
+                <button
+                  onClick={() => handleInvited()}
+                  className="login__button--invited"
+                >
+                  Login as invited
+                </button>
+              </div>
             </form>
             <p>
               Don't have an account? <Link to={"/signup"}>Sign Up</Link>
