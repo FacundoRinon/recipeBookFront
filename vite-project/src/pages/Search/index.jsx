@@ -91,10 +91,11 @@ const Search = () => {
             </div>
           ) : (
             <div className="search__inputs">
-              <label htmlFor="" className="search__label">
+              <label htmlFor="category" className="search__label">
                 Category:
               </label>
               <select
+                id="category"
                 name="category"
                 value={categoryValue}
                 onChange={(event) => setCategoryValue(event.target.value)}
@@ -111,10 +112,11 @@ const Search = () => {
                   );
                 })}
               </select>
-              <label htmlFor="" className="search__label">
+              <label htmlFor="score" className="search__label">
                 Score:
               </label>
               <select
+                id="score"
                 name="score"
                 value={scoreValue}
                 onChange={(event) => setScoreValue(event.target.value)}
@@ -126,10 +128,11 @@ const Search = () => {
                   </option>
                 ))}
               </select>
-              <label htmlFor="" className="search__label">
+              <label htmlFor="votes" className="search__label">
                 Votes:
               </label>
               <select
+                id="votes"
                 name="votes"
                 value={votesValue}
                 onChange={(event) => setVotesValue(event.target.value)}
