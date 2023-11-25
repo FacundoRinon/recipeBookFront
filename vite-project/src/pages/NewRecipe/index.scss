@@ -24,6 +24,8 @@
   }
 
   &__preview {
+    height: 80vh;
+    overflow: scroll;
     width: 85%;
     border: 3px solid $color-primary;
     background-color: white;
@@ -74,7 +76,6 @@
 
   &__button {
     color: $color-primary;
-    // font-size: 1.5rem;
     background-color: white;
     border: 3px solid $color-primary;
     border-radius: 10px;
@@ -124,6 +125,7 @@
 }
 
 .preview {
+  overflow: scroll;
   &__title {
     padding-left: 1.5rem;
   }

@@ -42,6 +42,7 @@
     height: 6rem;
     border-radius: 50%;
     border: 3px solid $color-primary;
+    object-fit: cover;
     @media (max-width: 576px) {
       border-radius: 50%;
       border: 3px solid $color-primary;

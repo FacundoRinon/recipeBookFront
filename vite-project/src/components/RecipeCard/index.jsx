@@ -105,7 +105,7 @@ const RecipeCard = ({ recipe }) => {
         <Link className="link" to={`/recipe/${url}`}>
           <div className="recipeCard__contentRow">
             <div className="recipeCard__description">
-              <p>{recipe.name}</p>
+              <h3>{recipe.name}</h3>
               <small>{recipe.description}</small>
             </div>
             <div className="recipeCard__recipePicSpace">
