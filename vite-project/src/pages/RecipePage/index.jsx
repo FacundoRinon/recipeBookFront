@@ -133,9 +133,9 @@ const RecipePage = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {recipe.ingredients.map((ingredient) => {
+                  {recipe.ingredients.map((ingredient, index) => {
                     return (
-                      <tr key={ingredient.name}>
+                      <tr key={index}>
                         <td className="recipePage__tableData">
                           {ingredient.name}
                         </td>
