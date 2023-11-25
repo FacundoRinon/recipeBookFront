@@ -5,6 +5,8 @@ import { setToken } from "../../redux/userSlice";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+import Carrousel from "../../components/Carrousel";
+
 import "./index.scss";
 
 const Login = () => {
@@ -52,6 +54,7 @@ const Login = () => {
                 className="form__input"
                 placeholder="Username or email"
                 name="username"
+                autoComplete="name"
                 value={usernameValue}
                 onChange={(event) => setUsernameValue(event.target.value)}
               />
@@ -83,7 +86,7 @@ const Login = () => {
             </p>
           </div>
           <div className="login__carousell">
-            <p>Aca va el carousell</p>
+            <Carrousel />
           </div>
         </div>
       </div>
