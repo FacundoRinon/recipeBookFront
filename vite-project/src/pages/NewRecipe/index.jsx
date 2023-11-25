@@ -169,9 +169,9 @@ const NewRecipe = () => {
             value={ingredientQuantity}
             onChange={(event) => setIngredientQuantity(event.target.value)}
           />
-          <p className="newRecipe__button" onClick={handleAddIngredient}>
+          <button className="newRecipe__button" onClick={handleAddIngredient}>
             Add <FontAwesomeIcon icon={faAdd} />
-          </p>
+          </button>
           <label htmlFor="instructions" className="newRecipe__label">
             Now describe how to prepare the recipe
           </label>
@@ -185,9 +185,9 @@ const NewRecipe = () => {
             value={stepValue}
             onChange={(event) => setStepValue(event.target.value)}
           ></textarea>
-          <p className="newRecipe__button" onClick={() => handleAddStep()}>
+          <button className="newRecipe__button" onClick={() => handleAddStep()}>
             New step <FontAwesomeIcon icon={faAdd} />
-          </p>
+          </button>
           <label htmlFor="avatar" className="newRecipe__label">
             Take a picture of your results
           </label>

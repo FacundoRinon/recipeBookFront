@@ -42,6 +42,7 @@
     border: 3px solid $color-primary;
     border-radius: 50%;
     margin: 0.5rem;
+    object-fit: cover;
   }
   &__userData {
     color: $color-primary;
