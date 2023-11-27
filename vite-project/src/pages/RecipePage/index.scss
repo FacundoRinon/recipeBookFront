@@ -24,13 +24,12 @@
     padding: 1rem;
     @media (max-width: 576px) {
       flex-wrap: wrap;
-      justify-content: center;
       width: 90%;
     }
   }
 
   &__Pic {
-    width: 45%;
+    width: 40%;
     max-height: 20rem;
     border-radius: 10px;
     object-fit: cover;
