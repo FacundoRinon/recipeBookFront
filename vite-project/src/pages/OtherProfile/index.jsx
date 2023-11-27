@@ -138,7 +138,7 @@ const OtherProfile = () => {
                 })}
                 onClick={() => setRenderRecipes(otherUser.recipes)}
               >
-                Your recipies
+                Created recipies
               </h3>
               <h3
                 className={cn("otherProfile__headerButton", {
