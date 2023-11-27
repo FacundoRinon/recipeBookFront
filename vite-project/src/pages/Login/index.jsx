@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { setToken } from "../../redux/userSlice";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 import Carrousel from "../../components/Carrousel";
 
@@ -26,6 +27,13 @@ const Login = () => {
     if (response.data.token) {
       dispatch(setToken(response.data));
       navigate("/");
+    } else {
+      toast.error(`${response.data}`, {
+        position: "top-center",
+        autoClose: 3000,
+        closeOnClick: true,
+        theme: "dark",
+      });
     }
   }
 
@@ -44,6 +52,7 @@ const Login = () => {
   return (
     <>
       <div className="login">
+        <ToastContainer />
         <div className="login__space">
           <div className="login__form">
             <p className="login__message">Welcome !!</p>

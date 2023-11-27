@@ -16,6 +16,7 @@ import EditProfile from "./pages/EditProfile";
 import Follows from "./pages/Follows";
 import EditRecipe from "./pages/EditRecipe";
 import AboutProyect from "./pages/AboutProyect";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             <Route path="/aboutProyect" element={<AboutProyect />} />
           </Route>
         </Route>
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </>
   );
