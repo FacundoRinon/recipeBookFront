@@ -40,7 +40,7 @@ const EditProfile = () => {
 
     const response = await axios({
       method: "PATCH",
-      url: `${import.meta.env.VITE_API_URL}/user`,
+      url: `${import.meta.env.VITE_API_URL}user`,
       data: formData,
       headers: {
         Authorization: `Bearer ${user.token}`,

@@ -24,7 +24,7 @@ const Modal = ({
     try {
       const response = await axios({
         method: "PATCH",
-        url: `${import.meta.env.VITE_API_URL}/recipes/score/${id}`,
+        url: `${import.meta.env.VITE_API_URL}recipes/score/${id}`,
         data: {
           userId: user.id,
           score: score,

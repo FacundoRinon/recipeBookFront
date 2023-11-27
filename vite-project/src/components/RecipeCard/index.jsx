@@ -28,7 +28,7 @@ const RecipeCard = ({ recipe }) => {
     try {
       const response = axios({
         method: "PATCH",
-        url: `${import.meta.env.VITE_API_URL}/user/book/${url}`,
+        url: `${import.meta.env.VITE_API_URL}user/book/${url}`,
         headers: {
           Authorization: `Bearer ${user.token}`,
         },

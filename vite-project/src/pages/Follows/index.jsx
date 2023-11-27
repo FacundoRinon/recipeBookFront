@@ -26,7 +26,7 @@ const Follows = () => {
   async function getOtherProfile(event) {
     const response = await axios({
       method: "GET",
-      url: `${import.meta.env.VITE_API_URL}/user/${id}`,
+      url: `${import.meta.env.VITE_API_URL}user/${id}`,
       headers: {
         Authorization: `Bearer ${user.token}`,
       },

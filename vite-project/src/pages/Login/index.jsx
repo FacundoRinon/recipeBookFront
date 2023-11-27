@@ -40,7 +40,7 @@ const Login = () => {
   async function handleInvited() {
     const response = await axios({
       method: "POST",
-      url: `${import.meta.env.VITE_API_URL}/user/login`,
+      url: `${import.meta.env.VITE_API_URL}user/login`,
       data: { username: "Invited", password: "1234" },
     });
     if (response.data.token) {

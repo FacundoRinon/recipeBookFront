@@ -22,7 +22,7 @@ const FollowRow = ({ follow }) => {
     try {
       const response = axios({
         method: "PATCH",
-        url: `${import.meta.env.VITE_API_URL}/user/${url}`,
+        url: `${import.meta.env.VITE_API_URL}user/${url}`,
         headers: {
           Authorization: `Bearer ${user.token}`,
         },

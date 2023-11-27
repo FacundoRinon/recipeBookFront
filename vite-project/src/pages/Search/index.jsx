@@ -26,7 +26,7 @@ const Search = () => {
     const getUsers = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/user`,
+          `${import.meta.env.VITE_API_URL}user`,
           {
             headers: {
               Authorization: `Bearer ${user.token}`,

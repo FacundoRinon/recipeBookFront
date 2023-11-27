@@ -49,7 +49,7 @@ const RecipePage = () => {
     const getRecipe = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/recipes/${id}`,
+          `${import.meta.env.VITE_API_URL}recipes/${id}`,
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -71,7 +71,7 @@ const RecipePage = () => {
   const handleDelete = async () => {
     try {
       const response = await axios.delete(
-        `${import.meta.env.VITE_API_URL}/recipes/${id}`,
+        `${import.meta.env.VITE_API_URL}recipes/${id}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,

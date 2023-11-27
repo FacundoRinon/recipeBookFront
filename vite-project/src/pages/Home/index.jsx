@@ -15,7 +15,7 @@ function Home() {
   const getRecipes = async () => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}/recipes/`,
+        `${import.meta.env.VITE_API_URL}recipes/`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,

@@ -34,7 +34,7 @@ const EditRecipe = () => {
       try {
         const response = await axios({
           method: "GET",
-          url: `${import.meta.env.VITE_API_URL}/recipes/${id}`,
+          url: `${import.meta.env.VITE_API_URL}recipes/${id}`,
           headers: {
             Authorization: `Bearer ${user.token}`,
           },
@@ -115,7 +115,7 @@ const EditRecipe = () => {
 
     const response = await axios({
       method: "PATCH",
-      url: `${import.meta.env.VITE_API_URL}/recipes/${id}`,
+      url: `${import.meta.env.VITE_API_URL}recipes/${id}`,
       data: formData,
       headers: {
         Authorization: `Bearer ${user.token}`,

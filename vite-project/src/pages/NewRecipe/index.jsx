@@ -79,7 +79,7 @@ const NewRecipe = () => {
 
     const response = await axios({
       method: "POST",
-      url: `${import.meta.env.VITE_API_URL}/recipes/`,
+      url: `${import.meta.env.VITE_API_URL}recipes/`,
       data: formData,
       headers: {
         Authorization: `Bearer ${user.token}`,
