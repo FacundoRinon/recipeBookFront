@@ -122,14 +122,14 @@ const RecipePage = () => {
                 })}
               </small>
             </div>
-            <div className="recipePage__PicAndDesc">
-              <div className="recipePage__Pic">
+            <div className="recipePage__picAndDesc">
+              <div className="recipePage__pic">
                 <img
                   src={`${import.meta.env.VITE_IMG_URL}/${recipe.avatar}`}
                   alt=""
                 />
               </div>
-              <div className="recipe__catAndDesc">
+              <div className="recipe__desc">
                 <p>Category: {recipe.category}</p>
                 <p>Description:</p>
                 <small>{recipe.description}</small>

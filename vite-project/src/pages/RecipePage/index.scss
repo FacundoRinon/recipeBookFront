@@ -18,6 +18,19 @@
     padding: 1rem;
   }
 
+  &__picAndDesc {
+    width: 100%;
+    display: flex;
+  }
+
+  &__pic {
+    width: 45%;
+  }
+
+  &__desc {
+    width: 45%;
+  }
+
   &__ingredientsRow {
     display: flex;
     flex-wrap: wrap;
