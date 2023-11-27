@@ -21,9 +21,9 @@
   &__PicAndDesc {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
     padding: 1rem;
     @media (max-width: 576px) {
+      flex-wrap: wrap;
       justify-content: center;
       width: 90%;
     }
