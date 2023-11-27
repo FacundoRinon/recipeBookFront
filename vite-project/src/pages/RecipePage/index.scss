@@ -39,6 +39,16 @@
     }
   }
 
+  &__catAndDesc {
+    width: 45%;
+    padding-left: 1rem;
+    overflow-wrap: break-word;
+    text-align: justify;
+    @media (max-width: 576px) {
+      width: 90%;
+    }
+  }
+
   &__ingredientsRow {
     display: flex;
     flex-wrap: wrap;
@@ -127,11 +137,4 @@
     justify-content: center;
     align-items: center;
   }
-}
-
-.recipe__catAndDesc {
-  width: 45%;
-  padding-left: 1rem;
-  overflow-wrap: break-word;
-  text-align: justify;
 }
