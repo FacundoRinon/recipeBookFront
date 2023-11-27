@@ -29,12 +29,11 @@
   }
 
   &__Pic {
-    width: 40%;
     max-height: 20rem;
     border-radius: 10px;
     object-fit: cover;
-    @media (max-width: 576px) {
-      width: 90%;
+    @media (min-width: 577px) {
+      max-width: 30rem;
     }
   }
 
