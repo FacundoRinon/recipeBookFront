@@ -81,13 +81,13 @@ const Navbar = () => {
       {dropActive && (
         <div className="navBar__drop">
           <Link className="link" to="/profile">
-            <p className="navbar__dropButton">
+            <p onClick={() => toggleDrop()} className="navbar__dropButton">
               {user.firstname} {user.lastname}
               <FontAwesomeIcon className="navBar__icon" icon={faUser} />
             </p>
           </Link>
           <Link className="link" to="/search">
-            <p className="navbar__dropButton">
+            <p onClick={() => toggleDrop()} className="navbar__dropButton">
               Search
               <FontAwesomeIcon className="navBar__icon" icon={faSearch} />
             </p>
