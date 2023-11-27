@@ -123,11 +123,12 @@ const RecipePage = () => {
               </small>
             </div>
             <div className="recipePage__PicAndDesc">
-              <img
-                src={`${import.meta.env.VITE_IMG_URL}/${recipe.avatar}`}
-                alt=""
-                className="recipePage__Pic"
-              />
+              <div className="recipePage__Pic">
+                <img
+                  src={`${import.meta.env.VITE_IMG_URL}/${recipe.avatar}`}
+                  alt=""
+                />
+              </div>
               <div className="recipe__catAndDesc">
                 <p>Category: {recipe.category}</p>
                 <p>Description:</p>

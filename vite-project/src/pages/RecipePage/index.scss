@@ -29,11 +29,15 @@
   }
 
   &__Pic {
-    max-height: 20rem;
-    border-radius: 10px;
-    object-fit: cover;
-    @media (min-width: 577px) {
-      max-width: 30rem;
+    width: 45%;
+    padding-left: 1rem;
+    @media (max-width: 576px) {
+      width: 90%;
+    }
+    & img {
+      max-height: 20rem;
+      border-radius: 10px;
+      object-fit: cover;
     }
   }
 
