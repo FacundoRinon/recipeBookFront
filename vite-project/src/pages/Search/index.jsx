@@ -101,12 +101,9 @@ const Search = () => {
                 onChange={(event) => setCategoryValue(event.target.value)}
                 className="search__select"
               >
-                {categories.map((category) => {
+                {categories.categories.map((category, index) => {
                   return (
-                    <option
-                      key={categories.indexOf(category)}
-                      value={`${category}`}
-                    >
+                    <option key={index} value={`${category}`}>
                       {category}
                     </option>
                   );

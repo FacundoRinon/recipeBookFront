@@ -150,7 +150,7 @@ const EditRecipe = () => {
               id="category"
               className="newRecipe__select"
             >
-              {categories.map((category, index) => {
+              {categories.categories.map((category, index) => {
                 return (
                   <option key={index} value={`${category}`}>
                     {category}

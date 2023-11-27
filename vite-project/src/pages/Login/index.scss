@@ -55,7 +55,9 @@
     border-radius: 5px;
     margin: 1rem;
     padding: 0.5rem;
+    cursor: pointer;
     &--invited {
+      cursor: pointer;
       background-color: black;
       color: $color-primary;
       border: 2px solid $color-primary;
