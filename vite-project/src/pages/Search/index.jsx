@@ -18,7 +18,7 @@ const Search = () => {
   const [searchValue, setSearchValue] = useState("");
   const [searchType, setSearchType] = useState("users");
 
-  const [categoryValue, setCategoryValue] = useState();
+  const [categoryValue, setCategoryValue] = useState("None");
   const [scoreValue, setScoreValue] = useState(0);
   const [votesValue, setVotesValue] = useState(0);
 
