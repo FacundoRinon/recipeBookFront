@@ -131,7 +131,6 @@ const RecipePage = () => {
               <div className="recipe__catAndDesc">
                 <p>Category: {recipe.category}</p>
                 <p>Description:</p>
-
                 <small>{recipe.description}</small>
               </div>
             </div>

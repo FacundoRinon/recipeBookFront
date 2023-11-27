@@ -23,6 +23,10 @@
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 1rem;
+    @media (max-width: 576px) {
+      justify-content: center;
+      width: 90%;
+    }
   }
 
   &__Pic {
@@ -31,7 +35,7 @@
     border-radius: 10px;
     object-fit: cover;
     @media (max-width: 576px) {
-      width: 80%;
+      width: 100%;
     }
   }
 
