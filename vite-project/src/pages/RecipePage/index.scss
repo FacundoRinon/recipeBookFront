@@ -19,8 +19,12 @@
   }
 
   &__picAndDesc {
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    @media (max-width: 576px) {
+      flex-wrap: wrap;
+    }
   }
 
   &__pic {
