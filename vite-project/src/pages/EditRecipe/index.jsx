@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAdd, faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
+import ErrorPage from "../ErrorPage";
 import categories from "../../assets/constants";
 
 import "./index.scss";
@@ -15,6 +16,8 @@ const EditRecipe = () => {
   const { id } = useParams();
 
   const [recipe, setRecipe] = useState(null);
+  const [error, setError] = useState(false);
+  const [message, setMessage] = useState("notAllowed");
 
   const [nameValue, setNameValue] = useState("");
   const [descriptionValue, setDescriptionValue] = useState("");
@@ -36,9 +39,13 @@ const EditRecipe = () => {
             Authorization: `Bearer ${user.token}`,
           },
         });
-        setRecipe(response.data);
+        if (response.data) {
+          setRecipe(response.data);
+        } else {
+          setError(true);
+        }
       } catch (error) {
-        console.log("getRecipe - EditRecipe", error);
+        setError(true);
       }
     }
     getRecipe();
@@ -116,6 +123,10 @@ const EditRecipe = () => {
       },
     });
     navigate(`/recipe/${id}`);
+  }
+
+  if (error || !user.recipes.some((recipe) => recipe.id === id)) {
+    return <ErrorPage message={message} />;
   }
 
   return (

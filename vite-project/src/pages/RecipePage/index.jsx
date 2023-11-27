@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { format } from "date-fns";
 import { enUS } from "date-fns/locale";
 
+import ErrorPage from "../ErrorPage";
 import Modal from "../../components/Modal";
 import Spinner from "../../components/Spinner";
 import { removeRecipe } from "../../redux/userSlice";
@@ -20,6 +21,9 @@ const RecipePage = () => {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isModal2Visible, setIsModal2Visible] = useState(false);
+
+  const [error, setError] = useState(false);
+  const [message, setMessage] = useState("noRecipe");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -52,9 +56,13 @@ const RecipePage = () => {
             },
           }
         );
-        setRecipe(response.data);
+        if (response.data) {
+          setRecipe(response.data);
+        } else {
+          setError(true);
+        }
       } catch (error) {
-        console.log("getRecipe - RecipePage", error);
+        setError(true);
       }
     };
     getRecipe();
@@ -76,6 +84,10 @@ const RecipePage = () => {
       console.log("RecipePage - handleDelete", error);
     }
   };
+
+  if (error) {
+    return <ErrorPage message={message} />;
+  }
 
   return (
     <>

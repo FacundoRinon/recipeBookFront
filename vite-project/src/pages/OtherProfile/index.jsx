@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import cn from "classnames";
 
+import ErrorPage from "../ErrorPage";
 import RecipeCard from "../../components/RecipeCard";
 import Spinner from "../../components/Spinner";
 import { toggleFollow } from "../../redux/userSlice";
@@ -17,6 +18,10 @@ const OtherProfile = () => {
 
   const [renderRecipes, setRenderRecipes] = useState([]);
   const [isFollowing, setIsFollowing] = useState(false);
+
+  const [error, setError] = useState(false);
+  const [message, setMessage] = useState("noUser");
+
   const dispatch = useDispatch();
 
   async function handleFollow() {
@@ -44,11 +49,14 @@ const OtherProfile = () => {
             Authorization: `Bearer ${user.token}`,
           },
         });
-        setOtherUser(response.data);
-        setRenderRecipes(response.data.recipes);
-        // setIsFollowing(user.following.includes(otherUser._id));
+        if (response.data) {
+          setOtherUser(response.data);
+          setRenderRecipes(response.data.recipes);
+        } else {
+          setError(true);
+        }
       } catch (error) {
-        console.log(error);
+        setError(true);
       }
     }
     getOtherProfile();
@@ -59,6 +67,10 @@ const OtherProfile = () => {
       setIsFollowing(user.following.includes(otherUser._id));
     }
   }, [user.following, otherUser]);
+
+  if (error) {
+    return <ErrorPage message={message} />;
+  }
 
   return (
     <>
@@ -126,7 +138,7 @@ const OtherProfile = () => {
                 })}
                 onClick={() => setRenderRecipes(otherUser.recipes)}
               >
-                Your recipies
+                Created recipies
               </h3>
               <h3
                 className={cn("otherProfile__headerButton", {

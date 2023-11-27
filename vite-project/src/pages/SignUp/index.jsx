@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+
+import Carrousel from "../../components/Carrousel";
 
 import "./index.scss";
 
@@ -36,12 +39,20 @@ function SignUp() {
     if (response.data.token) {
       dispatch(setToken(response.data));
       navigate("/");
+    } else {
+      toast.error(`${response.data}`, {
+        position: "top-center",
+        autoClose: 3000,
+        closeOnClick: true,
+        theme: "dark",
+      });
     }
   }
 
   return (
     <>
       <div className="signUp">
+        <ToastContainer />
         <div className="signUp__space">
           <div className="signUp__form">
             <p className="signUp__message">
@@ -111,7 +122,7 @@ function SignUp() {
             </p>
           </div>
           <div className="signUp__carousell">
-            <p>Hello madafakeeeeeers</p>
+            <Carrousel />
           </div>
         </div>
       </div>
