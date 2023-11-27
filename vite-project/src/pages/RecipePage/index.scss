@@ -19,22 +19,22 @@
   }
 
   &__picAndDesc {
-    width: 100%;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
   }
 
-  &__pic,
-  &__desc {
-    width: 45%;
-    box-sizing: border-box;
+  &__pic {
+    & img {
+      width: 45%;
+      @media (max-width: 576px) {
+        width: 100%;
+      }
+    }
   }
 
-  /* Media Query para pantallas más pequeñas que 576px */
-  @media (max-width: 576px) {
-    &__pic,
-    &__desc {
+  &__desc {
+    width: 45%;
+    @media (max-width: 576px) {
       width: 100%;
     }
   }
