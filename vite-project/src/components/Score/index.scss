@@ -5,11 +5,17 @@
   display: flex;
   justify-content: center;
   margin: 1rem;
+  @media (max-width: 576px) {
+    margin: 0.25rem;
+  }
 
   &__icon {
     color: $color-primary;
     margin: 0.5rem;
     font-size: 2rem;
     cursor: pointer;
+    @media (max-width: 576px) {
+      font-size: 576px;
+    }
   }
 }
