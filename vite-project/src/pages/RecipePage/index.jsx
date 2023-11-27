@@ -129,7 +129,7 @@ const RecipePage = () => {
                   alt=""
                 />
               </div>
-              <div className="recipe__desc">
+              <div className="recipePage__desc">
                 <p>Category: {recipe.category}</p>
                 <p>Description:</p>
                 <small>{recipe.description}</small>
