@@ -25,6 +25,10 @@
 
   &__pic {
     width: 90%;
+    & img {
+      width: 100%;
+      max-height: 20rem;
+    }
   }
 
   &__desc {
