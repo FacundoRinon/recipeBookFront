@@ -54,7 +54,7 @@ const Search = () => {
           method: "GET",
           url: `${
             import.meta.env.VITE_API_URL
-          }/recipes/search/${categoryValue}/${scoreValue}/${votesValue}`,
+          }recipes/search/${categoryValue}/${scoreValue}/${votesValue}`,
           headers: {
             Authorization: `Bearer ${user.token}`,
           },
