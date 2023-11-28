@@ -83,7 +83,12 @@ const Profile = () => {
                 return <RecipeCard key={recipe.id} recipe={recipe} />;
               })
             ) : (
-              <p>There is no recipes</p>
+              <div className="profile__noRecipes">
+                <h3>There are no recipes</h3>
+                <p>
+                  Look for <Link>new recipes</Link>
+                </p>
+              </div>
             )}
           </div>
         </div>
