@@ -49,6 +49,7 @@ const Search = () => {
 
   useEffect(() => {
     const getRecipes = async () => {
+      setSearchedRecipes(null);
       try {
         const response = await axios({
           method: "GET",
