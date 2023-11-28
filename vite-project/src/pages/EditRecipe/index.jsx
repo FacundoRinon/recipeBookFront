@@ -220,9 +220,6 @@ const EditRecipe = () => {
             <p className="newRecipe__button" onClick={() => handleAddStep()}>
               New step <FontAwesomeIcon icon={faAdd} />
             </p>
-            <label htmlFor="avatar" className="newRecipe__label">
-              Take a picture of your results
-            </label>
             <button className="newRecipe__submitButton" type="submit">
               Save changes
             </button>
