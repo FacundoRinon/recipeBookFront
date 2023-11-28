@@ -78,7 +78,7 @@ const Profile = () => {
             </h3>
           </div>
           <div className="profile__recipies">
-            {renderRecipes ? (
+            {renderRecipes.length > 0 ? (
               renderRecipes.map((recipe) => {
                 return <RecipeCard key={recipe.id} recipe={recipe} />;
               })
