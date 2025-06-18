@@ -210,7 +210,7 @@ const NewRecipe = () => {
           <div className="preview__descriptionRow">
             <div className="preview__imgSpace">
               <img
-                src={`${import.meta.env.VITE_IMG_URL}/nullRecipeAvatar.jpg`}
+                src={`${import.meta.env.VITE_IMG_URL}/default.jpg`}
                 alt=""
                 className="preview__pic"
               />

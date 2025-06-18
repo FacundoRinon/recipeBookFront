@@ -31,7 +31,6 @@ const EditProfile = () => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-
     const formData = new FormData();
     formData.append("firstname", firstnameValue);
     formData.append("lastname", lastnameValue);
@@ -47,6 +46,7 @@ const EditProfile = () => {
         "Content-Type": "multipart/form-data",
       },
     });
+    console.log(response.data);
     if (response.data === "ExistingUsername") {
       toast.error(`Username already exist`, {
         position: "top-center",

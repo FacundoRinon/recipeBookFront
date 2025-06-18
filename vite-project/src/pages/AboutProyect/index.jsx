@@ -77,33 +77,54 @@ const AboutProyect = () => {
             </h2>
             <div className="aboutProyect__techRow">
               <div className="aboutProyect__tech">
-                <img src={`${import.meta.env.VITE_IMG_URL2}/react.png`} />
+                <img
+                  className="aboutProyect__techPhoto"
+                  src={`${import.meta.env.VITE_IMG_URL}/react.png`}
+                />
                 <p>React.js</p>
               </div>
               <div className="aboutProyect__tech">
-                <img src={`${import.meta.env.VITE_IMG_URL2}/redux.png`} />
+                <img
+                  className="aboutProyect__techPhoto"
+                  src={`${import.meta.env.VITE_IMG_URL}/redux.png`}
+                />
                 <p>Redux.js</p>
               </div>
               <div className="aboutProyect__tech">
-                <img src={`${import.meta.env.VITE_IMG_URL2}/JS.png`} />
+                <img
+                  className="aboutProyect__techPhoto"
+                  src={`${import.meta.env.VITE_IMG_URL}/javaScript.png`}
+                />
                 <p>JavaScript</p>
               </div>
               <div className="aboutProyect__tech">
-                <img src={`${import.meta.env.VITE_IMG_URL2}/node.png`} />
+                <img
+                  className="aboutProyect__techPhoto"
+                  src={`${import.meta.env.VITE_IMG_URL}/node.png`}
+                />
                 <p>Node.js</p>
               </div>
               <div className="aboutProyect__tech">
-                <img src={`${import.meta.env.VITE_IMG_URL2}/mongoDB.png`} />
+                <img
+                  className="aboutProyect__techPhoto"
+                  src={`${import.meta.env.VITE_IMG_URL}/mongo.svg`}
+                />
                 <p>MongoDB</p>
               </div>
               <div className="aboutProyect__tech">
-                <img src={`${import.meta.env.VITE_IMG_URL2}/Git.png`} />
+                <img
+                  className="aboutProyect__techPhoto"
+                  src={`${import.meta.env.VITE_IMG_URL}/git.png`}
+                />
                 <p>Git/hub</p>
               </div>
             </div>
           </div>
           <div className="aboutProyect__card">
-            <img src={`${import.meta.env.VITE_IMG_URL}/yo.jpeg`} alt="" />
+            <img
+              src={`${import.meta.env.VITE_IMG_URL}/linkedInPhoto.jpeg`}
+              alt=""
+            />
             <h2>Facundo Riñón</h2>
             <p>Montevideo, UY</p>
             <p>Full stack developer</p>
